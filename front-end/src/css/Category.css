@@ -12,7 +12,11 @@
   height: 24px;
   width: 264px;
 }
+.category-label{
+  font-size: 16px;
+}
 .category-input::placeholder{
+  font-size: 16px;
   color: #DDE1E6;
 }
 .category-right {
@@ -35,6 +39,7 @@
 .spacer {
   padding: 0 16px 0 16px;
 }
+
 img {
   width: 32px;
   height: 32px;
