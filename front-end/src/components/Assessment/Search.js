@@ -4,17 +4,17 @@ const Search = ({onChange, search}) => {
 
   return (
     <>
-      <div class="wrap">
-        <div class="search">
+      <div className="wrap">
+        <div className="search">
           <input
             onChange={onChange}
             value={search}
             type="text"
-            class="searchTerm"
+            className="searchTerm"
             placeholder="검색"
           />
-          <button class="searchButton">
-            <i class="fa fa-search"></i>
+          <button className="searchButton">
+            <i className="fa fa-search"></i>
           </button>
         </div>
       </div>
