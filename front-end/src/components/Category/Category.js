@@ -113,6 +113,7 @@ function Category () {
           )
         })
       }
+
       <CategoryInput 
         input={input}
         setInput={setInput}

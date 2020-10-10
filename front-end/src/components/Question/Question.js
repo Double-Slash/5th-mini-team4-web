@@ -2,21 +2,24 @@ import React, {useRef, useState} from 'react';
 import '../Assessment/Assessment.css';
 import '../../css/Question.css';
 
+
+
 function Question(){
 
-    const [inputs, setInputs]=useState('')
-    const [descipt, setDescript]=useState(false);
+
+    const [descript, setDescript]=useState(false);
     const [contribute, setContribute]=useState(false);
 
+    const [inputs, setInputs]=useState('')
     const {name, narrativeChecked, scoreChecked} = inputs;
 
     const onChange=(e)=>{
         setInputs(e.target.value)
     }
 
-    const onDecriptChange = (e) => {
-        console.log(descipt)
-        setDescript(!descipt)
+    const onDescriptChange = (e) => {
+        console.log(descript)
+        setDescript(!descript)
     }
 
     const onContributeChange = (e) =>{
@@ -53,7 +56,7 @@ function Question(){
         const question={
             id:nextId.current,
             name: inputs,
-            narrativeChecked: descipt,
+            narrativeChecked: descript,
             scoreChecked: contribute
         }
         setQuestions([
@@ -70,9 +73,6 @@ function Question(){
         nextId.current+=1;
     }
 
-    const onKeyPress=()=>{
-
-    }
 
     const onRemove=(id)=>{
         setQuestions(questions.filter(question=>question.id!=id));
@@ -81,41 +81,55 @@ function Question(){
 
     return(
         <div>
-            <div className="Question_questionList">
-                {questions.map(question=>(
-                    console.log(question.narrativeChecked),
-                    <div className="Question_question">
-                        <div className="Question_questionName"> <label>{question.name}</label> </div>
-                        <div className="Question_questionOption">
-                            <label>서술형</label>
-                            <input type="checkbox" checked={question.narrativeChecked} />
-                            <label>점수형</label>
-                            <input type="checkbox" checked={question.scoreChecked} />
-                            <span>
-                            <img src={require("../../images/close.svg")} onClick={() => onRemove(question.id)}/>
-                        </span>
-                        </div>
-                    </div>
-                ))}
-            </div>
+            <QuestionList onRemove={onRemove} questions={questions}></QuestionList>
 
             <div className="Question_questionInput">
                 <div className="Question_questionName">
-                    <input type="text" name="name" size="80" placeholder="하고 싶은 질문을 입력하세요." onChange={onChange} onKeyPress={onKeyPress} value={name}/>
+                    <input type="text"
+                           name="name"
+                           size="80"
+                           placeholder="하고 싶은 질문을 입력하세요."
+                           onChange={onChange}
+                           value={name}/>
                 </div>
                 <div className="Question_questionOption">
-                    <label for="o1">서술형</label>
-                    <input type="checkbox" id="o1" value={descipt} onChange={onDecriptChange}/>
-                    <label for="o2">점수형</label>
+                    <label htmlFor="o1">서술형</label>
+                    <input type="checkbox" id="o1" value={descript} onChange={onDescriptChange}/>
+                    <label htmlFor="o2">점수형</label>
                     <input type="checkbox" id="o2" value={contribute} onChange={onContributeChange}/>
                     <span>
                     <img src={require("../../images/add.svg")} onClick={onCreate}/>
                 </span>
                 </div>
             </div>
-
         </div>
     )
 }
+
+const QuestionList = ({ onRemove, questions}) => {
+
+    return(
+        <>
+            <div className="Question_questionList">
+                {questions.map(question=>(
+                    console.log(question.narrativeChecked),
+                        <div className="Question_question">
+                            <div className="Question_questionName"> <label>{question.name}</label> </div>
+                            <div className="Question_questionOption">
+                                <label>서술형</label>
+                                <input type="checkbox" checked={question.narrativeChecked} />
+                                <label>점수형</label>
+                                <input type="checkbox" checked={question.scoreChecked} />
+                                <span>
+                            <img src={require("../../images/close.svg")} onClick={() => onRemove(question.id)}/>
+                            </span>
+                            </div>
+                        </div>
+                ))}
+            </div>
+        </>
+    )
+}
+
 
 export default Question;
