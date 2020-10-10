@@ -7,7 +7,7 @@ function App() {
     <div>
       5th-mini-project
       <Assessment></Assessment>
-      <Category />
+      {/* <Category /> */}
     </div>
   );
 }
