@@ -1,20 +1,16 @@
 import React, { useState } from 'react';
 import '../../css/Category.css'
+import Question from '../Question/Question'
+// image
 import add from '../../images/add.svg'
 import chevrondown from '../../images/chevrondown.svg'
 import chevronup from '../../images/chevronup.svg'
 import caretup from '../../images/caretup.svg'
 import caretdown from '../../images/caretdown.svg'
 import close from '../../images/close.svg'
-import test from '../../images/test.svg'
 
 function Category () {
   const [input, setInput] = useState('')
-  // const [active, setActive] = useState({
-  //   accordion: false,
-  //   addActive: true
-  // })
-
   const [lists, setLists] = useState([
     {
       id: 1,
@@ -81,11 +77,12 @@ function Category () {
     }
   ])
 
+  // 카테고리 삭제 
   const onCategoryRemove = (id) => {
-    //console.log(id);
-    //console.log(lists.filter((list,index) => index !== id))
     setLists(lists.filter((list,index) => index !== id));
   }
+
+  // 카테고리 추가
   const onCategoryAdd = () => {
     const list = {
       category: input,
@@ -94,7 +91,8 @@ function Category () {
     setLists([...lists, list]);
     setInput('');
   }
-
+  
+  // 카테고리 input 변경
   const onChangeTitle = (e) => {
     setInput(e.target.value);
   }
@@ -126,16 +124,10 @@ function Category () {
 
 function CategoryInput({ input, setInput, onChangeTitle, onCategoryAdd}) {
   //const [input, setInput] = useState('')
-  const [active, setActive] = useState({
-    accordion: false,
-    addActive: true
-  })
+  const [active, setActive] = useState(false)
 
-  const { accordion, addActive } = active
+  const { accordion } = active
   
-  // const onChangeTitle = (e) => {
-  //   setInput(e.target.value);
-  // }
   return(
     <>
       <div className='container'>
@@ -168,7 +160,7 @@ function CategoryInput({ input, setInput, onChangeTitle, onCategoryAdd}) {
       </div>
 
       <div className={ accordion ? 'category-open' : 'category-close'}>
-        render Items 
+        <Question /> 
       </div>
     </>
   )
@@ -179,11 +171,10 @@ function CategoryList({ list, index, onCategoryRemove }) {
   const [active, setActive] = useState(false);
 
   return(
-    console.log(index),
     <>
       <div className='container'>
         <div>
-          <div>{list.category}</div>
+          <div className='category-label'>{list.category}</div>
         </div>
         <div className='category-right '>
           <div className='cateogry-icon'>
@@ -206,8 +197,7 @@ function CategoryList({ list, index, onCategoryRemove }) {
       </div>
 
       <div className={ accordion ? 'category-open' : 'category-close'}>
-        render Items 
-        <img src={test} />
+        <Question questions={list.question}/>
       </div>
     </>
   )

@@ -2,10 +2,7 @@ import React, {useRef, useState} from 'react';
 import '../Assessment/Assessment.css';
 import '../../css/Question.css';
 
-
-
-function Question(){
-
+function Question({question}){
 
     const [descript, setDescript]=useState(false);
     const [contribute, setContribute]=useState(false);

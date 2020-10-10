@@ -8,7 +8,6 @@ function App() {
     <div>
       5th-mini-project
       <Assessment></Assessment>
-        <Question />
         <div>
             <Category/>
         </div>
