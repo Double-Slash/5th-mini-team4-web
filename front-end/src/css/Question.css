@@ -1,0 +1,46 @@
+.Question_question{
+    width: 1000px;
+    height: 30px;
+    font-size: 16px;
+    display: flex;
+    border-bottom: 1px solid #A2A9B0;
+    margin: 12px;
+}
+
+.Question_questionOption>*{
+    margin-right: 16px;
+}
+
+.Question_questionName{
+    flex: 1;
+}
+
+.Question_question>div>span>img{
+    width: 20px;
+    height: 20px;
+}
+
+.Question_questionInput{
+    width: 1000px;
+    height: 30px;
+    font-size: 16px;
+    display: flex;
+    border-bottom: 1px solid #A2A9B0;
+    margin: 12px;
+    color: #C1C7CD;
+}
+
+.Question_questionInput>div>span>img{
+    width: 20px;
+    height: 20px;
+}
+
+.Question_questionName>input{
+    border:none;
+    outline: none;
+    font-size: 16px;
+}
+
+.Question_questionInput>Question_questionName>input[type=text]:focus::-ms-input-placeholder {
+    color: transparent;
+}
