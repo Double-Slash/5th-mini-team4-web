@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Assessment.css";
 import Search from "./Search";
-import axios from "axios";
+
 import Main_title from "./Main_Title";
 
 //질문결과 페이지
