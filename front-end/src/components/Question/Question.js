@@ -2,7 +2,7 @@ import React, {useRef, useState} from 'react';
 import '../Assessment/Assessment.css';
 import '../../css/Question.css';
 
-function Question(){
+function Question({ question }){
 
     const [inputs, setInputs]=useState('')
     const [descipt, setDescript]=useState(false);
@@ -15,12 +15,10 @@ function Question(){
     }
 
     const onDecriptChange = (e) => {
-        console.log(descipt)
         setDescript(!descipt)
     }
 
     const onContributeChange = (e) =>{
-        console.log(!contribute)
         setContribute(!contribute)
     }
 
@@ -80,10 +78,10 @@ function Question(){
 
 
     return(
+        console.log('test',question),
         <div>
             <div className="Question_questionList">
                 {questions.map(question=>(
-                    console.log(question.narrativeChecked),
                     <div className="Question_question">
                         <div className="Question_questionName"> <label>{question.name}</label> </div>
                         <div className="Question_questionOption">
