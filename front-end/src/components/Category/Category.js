@@ -169,7 +169,6 @@ function CategoryInput({ input, setInput, onChangeTitle, onCategoryAdd}) {
 function CategoryList({ list, index, onCategoryRemove }) {
   const [accordion, setAccordion] = useState(false);
   const [active, setActive] = useState(false);
-
   return(
     <>
       <div className='container'>
