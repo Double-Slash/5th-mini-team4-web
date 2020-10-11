@@ -4,7 +4,7 @@ import Home from './pages/Home/Home'
 import Assessment from './components/Assessment/Assessment';
 import Category from './components/Category/Category';
 import Navigation from './pages/Navigation/Navigation';
-import Header from './components/Header/Header';
+import Header from './pages/Header/Header';
 
 function App() {
   return (

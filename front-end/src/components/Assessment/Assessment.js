@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import "./Assessment.css";
+
 import Search from "./Search";
 
-import Main_title from "./Main_Title";
+import Categories from "../Categories/Categories";
 
 //질문결과 페이지
 const Assessment = () => {
@@ -23,7 +23,7 @@ const Assessment = () => {
               answers : [
                 {
                   writer : "사용자1",
-                  answer : "평가 내용_답장입력 후 상태이다.",
+                  answer : "평가 내용_답장입력 후 상태이다.첫번째 영역: 각각의 영역의 너비를 33%로 주었을 때, 세 영역이 나란히 놓인다.첫번째 영역: 각각의 영역의 너비를 33%로 주었을 때, 세 영역이 나란히 놓인다.",
                   contribution : 10
                 },
                 {
@@ -39,11 +39,11 @@ const Assessment = () => {
               contribution : false,
               answers : [
                 {
-                  writer : "사용자1",
+                  writer : "사용자4",
                   answer : "아주 탁월하다",
                   contribution : 10
-                }
-
+                },
+                
               ]
             },
           ]
@@ -86,14 +86,15 @@ const Assessment = () => {
   //const filterList = assessment.filter( info => info.name.indexOf(search) !== -1 )
   return (
     <>
-    
+      <div className="Assessment">
       <Search onChange={onChange} value={search}></Search>
       
       <div>
         {data.map( (data) => (
-           <Main_title categories={data.categories}>
-           </Main_title>
+           <Categories categories={data.categories}>
+           </Categories>
         ))}
+      </div>
       </div>
     </>
   );

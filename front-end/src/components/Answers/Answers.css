@@ -1,0 +1,44 @@
+.questions{
+}
+
+.question_wrap{
+    
+}
+
+.question{
+    display: inline;
+    margin: 10px;
+}
+
+.accordion{
+    display: inline;
+}
+
+.answers_wrap{
+   
+    display: flex;
+    flex-direction: row;
+    
+    border: 1px solid red;
+    margin: 10px;
+}
+
+.writer{
+  
+    margin: 10px;
+    border: 1px solid;
+}
+
+.answer{
+  
+    border: 1px solid;
+    margin: 10px;
+}
+
+.category-open {
+    display: block;
+}
+
+.category-close {
+    display: none;
+}
