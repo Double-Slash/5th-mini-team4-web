@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import "./Navigation.css";
 
+// Navbar 최종시 없앨예정 개발시 페이지 구성 편의를 위해
 const Navigation = () => {
     return(
         <>

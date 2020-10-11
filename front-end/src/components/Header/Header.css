@@ -1,0 +1,35 @@
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css';
+
+*{
+    box-sizing: border-box;
+}
+
+.container2
+{
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  top: 0px;
+  background-color: black;
+  color: white;
+}
+
+i
+{
+  width: 30px;
+}
+
+span
+{
+  margin-right: 15px;
+  font-size: 14px;
+
+}
+
+img
+{
+  height: 20px;
+  width: 150px;
+  margin-top: 2.5px;
+}
+

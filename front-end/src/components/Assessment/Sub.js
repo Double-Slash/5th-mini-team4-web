@@ -1,7 +1,7 @@
 import React from "react";
 
+//카테고리 -> 질문 제목, 사용자 및 댓글 정보..
 const Sub = ({ questions }) => {
-  //카테고리 -> 질문 제목, 사용자 및 댓글 정보..
 
   const onClick = () => {
       
