@@ -1,0 +1,24 @@
+.categories_s{
+
+}
+.category_s{
+    display: inline;
+    
+}
+
+.accordion1{
+    display: inline;
+    padding-left: 50px;
+    margin-left: 50px;
+}
+
+.open_s{
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    border-bottom: 1px solid;
+}
+
+.close_s{
+    display: none;
+}
