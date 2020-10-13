@@ -10,71 +10,77 @@ import caretdown from '../../images/caretdown.svg'
 import close from '../../images/close.svg'
 
 function Category () {
-  const [input, setInput] = useState('')
+  const [inputs, setInputs] = useState({
+    category: '',
+    question: ''
+  })
+  const [descript, setDescript]=useState(false);
+  const [contribute, setContribute]=useState(false);
+  const { category, question } = inputs
   const [lists, setLists] = useState([
-    {
-      id: 1,
-      category: 'test1',
-      question: [
-        {
-          qeustion: 'ttttt',
-          description: false,
-          contribution: false,
-        },
-        {
-          qeustion: 'oooooo',
-          description: false,
-          contribution: false,
-        },
-        {
-          qeustion: 'xxxxxx',
-          description: false,
-          contribution: false,
-        },
-      ]
-    },
-    {
-      id: 2,
-      category: 'test2',
-      question: [
-        {
-          qeustion: 'ttttt',
-          description: false,
-          contribution: false,
-        },
-        {
-          qeustion: 'oooooo',
-          description: false,
-          contribution: false,
-        },
-        {
-          qeustion: 'xxxxxx',
-          description: false,
-          contribution: false,
-        },
-      ]
-    },
-    {
-      id: 3,
-      category: 'test3',
-      question: [
-        {
-          qeustion: 'ttttt',
-          description: false,
-          contribution: false,
-        },
-        {
-          qeustion: 'oooooo',
-          description: false,
-          contribution: false,
-        },
-        {
-          qeustion: 'xxxxxx',
-          description: false,
-          contribution: false,
-        },
-      ]
-    }
+    // {
+    //   id: 1,
+    //   category: 'test1',
+    //   questions: [
+    //     {
+    //       question: 'ttttt',
+    //       description: false,
+    //       contribution: false,
+    //     },
+    //     {
+    //       question: 'oooooo',
+    //       description: false,
+    //       contribution: false,
+    //     },
+    //     {
+    //       question: 'xxxxxx',
+    //       description: false,
+    //       contribution: false,
+    //     },
+    //   ]
+    // },
+    // {
+    //   id: 2,
+    //   category: 'test2',
+    //   questions: [
+    //     {
+    //       question: 'ttttt',
+    //       description: false,
+    //       contribution: false,
+    //     },
+    //     {
+    //       question: 'oooooo',
+    //       description: false,
+    //       contribution: false,
+    //     },
+    //     {
+    //       question: 'xxxxxx',
+    //       description: false,
+    //       contribution: false,
+    //     },
+    //   ]
+    // },
+    // {
+    //   id: 3,
+    //   category: 'test3',
+    //   questions: [
+    //     {
+    //       question: 'ttttt',
+    //       description: false,
+    //       contribution: false,
+    //     },
+    //     {
+    //       question: 'oooooo',
+    //       description: false,
+    //       contribution: false,
+    //     },
+    //     {
+    //       question: 'xxxxxx',
+    //       description: false,
+    //       contribution: false,
+    //     },
+    //   ]
+    // }
   ])
 
   // 카테고리 삭제 
@@ -85,20 +91,69 @@ function Category () {
   // 카테고리 추가
   const onCategoryAdd = () => {
     const list = {
-      category: input,
-      question: []
+      category,
+      questions: []
     }
     setLists([...lists, list]);
-    setInput('');
+    setInputs({ category: '' });
   }
   
   // 카테고리 input 변경
   const onChangeTitle = (e) => {
-    setInput(e.target.value);
+    setInputs({ category: e.target.value });
   }
+
+  // 질문 input 변경
+  const onChangeQuestion = (e) => {
+    setInputs({ question: e.target.value });
+  }
+
+  // 질문 추가
+  const onQuestionAdd = (id) =>{
+    const list = lists.map((list,index) => {
+      return(
+        index === id ? {
+          ...list, 
+          questions: list.questions.concat({
+            question,
+            description: descript,
+            contribution: contribute,
+          })
+        }: list
+      )
+    })
+    setLists(list);
+    setDescript(false);
+    setContribute(false);
+    setInputs({ question: '' });
+
+  }
+
+  const onQuestionRemove = (id, index) => {
+    console.log('remove', id, index);
+    const newList = lists.slice(0);
+    newList.forEach((category,index) => {
+      if(index === id) {
+        category.questions = category.questions.filter((question, i) => i !== index)
+      }
+    });
+    setLists(newList);
+  }
+
+  // 서술형 체크
+  const onDescriptChange = (e) => {
+    setDescript(!descript)
+  }
+  
+  // 점수형 체크
+  const onContributeChange = (e) =>{
+    setContribute(!contribute)
+  }
+
 
   return (
     <>
+      <button onClick={()=> onQuestionRemove(1,1)}>test</button>
       {
         lists?.map((list,index) => {
           return(
@@ -106,15 +161,23 @@ function Category () {
               key={index}
               list={list} 
               index={index}
+              question={question}
+              descript={descript}
+              contribute={contribute}
+              onQuestionAdd={onQuestionAdd}
+              onQuestionRemove={onQuestionRemove}
               onCategoryRemove={onCategoryRemove}
+              onChangeQuestion={onChangeQuestion}
+              onDescriptChange={onDescriptChange}
+              onContributeChange={onContributeChange}
             />
           )
         })
       }
 
       <CategoryInput 
-        input={input}
-        setInput={setInput}
+        input={category}
+        setInputs={setInputs}
         onChangeTitle={onChangeTitle}
         onCategoryAdd={onCategoryAdd}
       />
@@ -122,16 +185,18 @@ function Category () {
   );
 }
 
-function CategoryInput({ input, setInput, onChangeTitle, onCategoryAdd}) {
+function CategoryInput({ 
+    input, 
+    setInputs, 
+    onChangeTitle, 
+    onCategoryAdd,}) {
   //const [input, setInput] = useState('')
-  const [active, setActive] = useState(false)
-
-  const { accordion } = active
+  const [accordion, setAccordion] = useState(false);
   
   return(
     <>
       <div className='container'>
-        <div>
+        <div className='category-flex'>
           <input 
             value={input}
             onChange={onChangeTitle}
@@ -147,7 +212,7 @@ function CategoryInput({ input, setInput, onChangeTitle, onCategoryAdd}) {
 
           <div className='spacer'/>
 
-          <div onClick={() => setActive({ accordion: !accordion})}>
+          <div onClick={() => setAccordion(!accordion)}>
             <img alt='accordion' src={ accordion ? chevronup : chevrondown} />
           </div>
 
@@ -166,13 +231,23 @@ function CategoryInput({ input, setInput, onChangeTitle, onCategoryAdd}) {
   )
 }
 
-function CategoryList({ list, index, onCategoryRemove }) {
+function CategoryList({ 
+    list, 
+    index,
+    question, 
+    descript,
+    contribute,
+    onCategoryRemove,
+    onChangeQuestion,
+    onDescriptChange,
+    onContributeChange,
+    onQuestionAdd,
+    onQuestionRemove }) {
   const [accordion, setAccordion] = useState(false);
-  const [active, setActive] = useState(false);
   return(
     <>
       <div className='container'>
-        <div>
+        <div className='category-flex'>
           <div className='category-label'>{list.category}</div>
         </div>
         <div className='category-right '>
@@ -196,7 +271,18 @@ function CategoryList({ list, index, onCategoryRemove }) {
       </div>
 
       <div className={ accordion ? 'category-open' : 'category-close'}>
-        <Question questions={list.question}/>
+        <Question 
+          questions={list.questions}
+          question={question}
+          descript={descript}
+          contribute={contribute}
+          onChangeQuestion={onChangeQuestion}
+          onDescriptChange={onDescriptChange}
+          onContributeChange={onContributeChange}
+          onQuestionAdd={onQuestionAdd}
+          index={index}
+          onQuestionRemove={onQuestionRemove}
+          />
       </div>
     </>
   )
