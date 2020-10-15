@@ -82,22 +82,67 @@ const Assessment = () => {
     setSearch(e.target.value);
   };
 
+  const [list, setList] = useState(null);
+  const [check, setCheck] = useState([]);
+  
+  const onClick = (e) => {
+    setList([]);
+    data.map((data)=>(
+      data.categories.map((categories) => (
+        categories.questions.map((questions)=>(
+          questions.answers.map((answers)=>{
+            if(answers.writer === e.target.value){
+              setList({...list, answers})
+            }
+            // const test = answers.filter(answers => answers.writer === e.target.value);
+            // setList({...list, test});  
+          })
+            
+        ))
+      ))
+    ))
+  }
+
+
+
+
   //const filterList = assessment.filter( info => info.name.indexOf(search) !== -1 )
   return (
     <>
       <div className="Assessment">
         <Search onChange={onChange} value={search}></Search>
 
+  
         <div>
           {data.map((data) =>
             data.categories.map((categories) => (
               <Categories
+                onClick={onClick}
                 categories={categories.category}
                 questions={categories.questions}
+                list={list}
               ></Categories>
             ))
           )}
-        </div>
+        </div> 
+
+      
+      {/* {data.map((data)=>(
+      data.categories.map((categories) => (
+        categories.questions.map((questions)=>(
+          questions.answers.map((answers)=>{
+            if(answers.writer === e.target.value){
+              setList({...list, answers})
+            }
+            // const test = answers.filter(answers => answers.writer === e.target.value);
+            // setList({...list, test});  
+          })
+            
+        ))
+      ))
+    ))} */}
+
+
       </div>
     </>
   );
