@@ -5,6 +5,7 @@ import Assessment from './components/Assessment/Assessment';
 import Category from './components/Category/Category';
 import Navigation from './pages/Navigation/Navigation';
 import Header from './pages/Header/Header';
+import CreateAssessment from'./pages/Home/CreateAssessment';
 
 function App() {
   return (
