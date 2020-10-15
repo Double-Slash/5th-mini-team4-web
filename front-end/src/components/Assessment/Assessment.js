@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-
 import Search from "./Search";
-
-import Categories from "../Categories/Categories";
+import "../../css/Assessment.css";
+import Categories from "./Categories";
 
 //질문결과 페이지
 const Assessment = () => {
@@ -109,6 +108,7 @@ const Assessment = () => {
   //const filterList = assessment.filter( info => info.name.indexOf(search) !== -1 )
   return (
     <>
+      <div className="Assessment_container">
       <div className="Assessment">
         <Search onChange={onChange} value={search}></Search>
 
@@ -143,6 +143,7 @@ const Assessment = () => {
     ))} */}
 
 
+      </div>
       </div>
     </>
   );

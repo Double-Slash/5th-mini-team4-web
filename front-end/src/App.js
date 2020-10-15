@@ -3,9 +3,9 @@ import {HashRouter, Route} from 'react-router-dom';
 import Home from './pages/Home/Home'
 import Assessment from './components/Assessment/Assessment';
 import Category from './components/Category/Category';
-import Navigation from './pages/Navigation/Navigation';
-import Header from './pages/Header/Header';
-import CreateAssessment from'./pages/Home/CreateAssessment';
+import Navigation from './pages/Navigation';
+import Header from "./pages/Header";
+
 
 function App() {
   return (

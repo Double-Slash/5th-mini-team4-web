@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../Assessment/Assessment.css';
+
 import '../../css/Question.css';
 
 function Question({ 

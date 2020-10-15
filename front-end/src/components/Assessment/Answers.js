@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import "./Answers.css";
+import React, { useState } from "react";
+import "../../css/Answers.css";
 import chevrondown from "../../images/chevrondown.svg";
 import chevronup from "../../images/chevronup.svg";
 import Writer from "./Writer";
@@ -30,11 +30,12 @@ const Answers = ({ question, answers, onClick, list }) => {
     <>
       <div className="questions">
         <div className="question_wrap">
-          <div className="question">{question}</div>
-          <div className="accordion" onClick={() => setAccordion(!accordion)}>
-            <img alt="accordion" src={accordion ? chevronup : chevrondown} />
+          <div className="accordin_wrap">
+            <div className="question">{question}</div>
+            <div className="accordion" onClick={() => setAccordion(!accordion)}>
+              <img alt="accordion" src={accordion ? chevronup : chevrondown} />
+            </div>
           </div>
-
           {answers.map((answers, index) => (
             <div className={accordion ? "open" : "close"}>
              <Writer answers={answers} ></Writer>

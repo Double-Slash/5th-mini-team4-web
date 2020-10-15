@@ -1,5 +1,5 @@
 import React from 'react';
-import './CreateAssessment.css';
+import '../../css/CreateAssessment.css';
 
 function CreateAssessment(){
     return (

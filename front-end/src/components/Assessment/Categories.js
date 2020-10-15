@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import Answers from "../Answers/Answers";
-import "./Categories.css"
+import Answers from "./Answers";
+import "../../css/Categories.css";
 import chevrondown from "../../images/chevrondown.svg";
 import chevronup from "../../images/chevronup.svg";
-
 const Categories = ({ categories, questions, list, onClick }) => {
   //질문 카테고리
   const [accordion, setAccordion] = useState(true);
@@ -17,10 +16,12 @@ const Categories = ({ categories, questions, list, onClick }) => {
   return (
     <>
       <div className="categories_s">
-        <div className="category_s">{categories}</div>
+        <div className="category_s_wrap">
+          <div className="category_s">{categories}</div>
 
-        <div className="accordion1" onClick={() => setAccordion(!accordion)}>
-          <img alt="accordion" src={accordion ? chevronup : chevrondown} />
+          <div className="accordion1" onClick={() => setAccordion(!accordion)}>
+            <img alt="accordion" src={accordion ? chevronup : chevrondown} />
+          </div>
         </div>
 
         {questions.map((questions) => (

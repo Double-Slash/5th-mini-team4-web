@@ -1,8 +1,15 @@
 .questions{
+
 }
 
 .question_wrap{
     border: 1px solid;
+    
+}
+
+.accordin_wrap{
+    background-color: #d3d3d3;
+
 }
 
 .question{

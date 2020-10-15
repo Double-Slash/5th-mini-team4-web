@@ -1,9 +1,12 @@
 .categories_s{
-
+    
+}
+.category_s_wrap{
+    padding: 10;
+    background-color: #A2A9B0;
 }
 .category_s{
     display: inline;
-    
 }
 
 .accordion1{
