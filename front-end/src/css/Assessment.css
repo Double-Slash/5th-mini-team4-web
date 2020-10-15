@@ -1,7 +1,14 @@
+.Assessment_container{
+  overflow: hidden;
+}
+
 .Assessment{
   /* position: absolute;
   top: 30%;
   left: %; */
-  padding: 10px;
+  padding-left: px;
   width: 80%;
+  margin: 0 auto;
+
 }
+

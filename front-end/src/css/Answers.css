@@ -8,8 +8,7 @@
 }
 
 .accordin_wrap{
-    background-color: #d3d3d3;
-
+  background-color: #f2f4f8;
 }
 
 .question{
@@ -34,9 +33,18 @@
 
 
 .writer{
-    margin: 10px;
+    background-color: var(--white);
 }
 
 .answer{
     margin: 10px;
+    font-family: NotoSansCJKkr;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: #000000;
 }

@@ -5,6 +5,11 @@ body{
   font-family: 'Open Sans', sans-serif; */
 }
 
+.search_wrap{
+  padding: 10px;
+  
+}
+
 .search {
   width: 80%;
   position: relative;

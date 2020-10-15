@@ -4,7 +4,7 @@ const Search = ({onChange, search}) => {
 
   return (
     <>
-      <div className="wrap">
+      <div className="search_wrap">
         <div className="search">
           <input
             onChange={onChange}
