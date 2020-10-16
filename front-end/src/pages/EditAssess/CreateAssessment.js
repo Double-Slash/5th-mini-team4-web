@@ -106,29 +106,8 @@ function CreateAssessment(){
             questions: []
           })
       })
-      // const list = {
-      //   categories: {
-      //     ...lists.categories,
-      //     categories : newList[0].categories.concat({
-      //       category,
-      //       questions: []
-      //     }),
-      //   }
-      // }
-
-      // setLists(newList);
-      // setInputs({ category: '' });
-      // newList[0].forEach((category,index) => {
-      //   // categories = 
-      //   //   categories.concat({
-      //   //     category,
-      //   //     questions: []
-      //   //   })
-      //   console.log(category)
-      // })
       setLists(newList);
       setInputs({ category: '' });
-      // console.log(newList);
     }
     
     // 카테고리 input 변경
