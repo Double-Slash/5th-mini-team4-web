@@ -4,16 +4,67 @@ import '../../css/Question.css';
 
 function Question({ 
     questions,
-    descript,
-    contribute, 
-    question,
-    onQuestionAdd, 
-    onChangeQuestion, 
-    onDescriptChange, 
-    onContributeChange, 
+    lists,
+    setLists,
+    // descript,
+    // contribute, 
+    // question,
+    // onQuestionAdd, 
+    // onChangeQuestion, 
+    // onDescriptChange, 
+    // onContributeChange, 
     index,
-    onQuestionRemove, }){
+    // onQuestionRemove, 
+}){
 
+    const [question, setQuestion] = useState('');
+    const [descript, setDescript]=useState(false);
+    const [contribute, setContribute]=useState(false);
+
+    const onChangeQuestion = (e) => {
+        setQuestion(e.target.value);
+    }
+  
+    // 질문 추가
+    const onQuestionAdd = (id) =>{
+      const newList = lists.slice(0);
+      newList[0].categories.forEach((category, index) => {
+        console.log('test',category)
+        if( index === id){
+          category.questions = 
+            category.questions.concat({
+              question,
+              description: descript,
+              contribution: contribute
+            })
+        }
+      })
+      setLists(newList);
+      setDescript(false);
+      setContribute(false);
+      setQuestion('');
+    }
+  
+    // 질문 삭제
+    const onQuestionRemove = (id, ind) => {
+      const newList = lists.slice(0);
+      newList[0].categories.forEach((category,index) => {
+        if(index === id) {
+          category.questions = category.questions.filter((question, i) => i !== ind)
+        }
+      });
+      setLists(newList);
+    }
+  
+    // 서술형 체크
+    const onDescriptChange = (e) => {
+      setDescript(!descript)
+    }
+    
+    // 점수형 체크
+    const onContributeChange = (e) =>{
+      setContribute(!contribute)
+    }
     return(
         <div>
             {/* <QuestionList onRemove={onRemove} questions={questions}></QuestionList> */}

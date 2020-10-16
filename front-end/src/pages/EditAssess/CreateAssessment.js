@@ -183,10 +183,11 @@ function CreateAssessment(){
     }
 
     return (
+      console.log(lists),
             <>
                 <div>
                   <div className="header">
-                    <div className="title">{lists[0].assessment}</div>
+                    <div className="title">{lists[0]?.assessment}</div>
                     
                     <div style={{ 
                       display: 'flex', 
@@ -243,9 +244,11 @@ function CreateAssessment(){
                 <div style={{ display: 'flex', justifyContent: 'center'}}>
                   <div style={{ padding:'0 264px 0 264px', marginTop: 64, flex: 1 }}>
                     <Category 
-                      categories={lists[0].categories} 
+                      categories={lists[0]?.categories} 
                       inputs={inputs}
                       setInputs={setInputs}
+                      lists={lists}
+                      setLists={setLists}
                       descript={descript}
                       setDescript={setDescript}
                       contribute={contribute}

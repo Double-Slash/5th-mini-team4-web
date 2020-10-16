@@ -13,6 +13,8 @@ function Category ({
   categories,
   inputs,
   setInputs,
+  lists,
+  setLists,
   descript,
   setDescript,
   contribute,
@@ -104,7 +106,6 @@ function Category ({
 
 
   return (
-    console.log(inputs),
     <>
       {
         categories?.map((list,index) => {
@@ -113,6 +114,8 @@ function Category ({
               key={index}
               list={list} 
               index={index}
+              lists={lists}
+              setLists={setLists}
               question={inputs.question}
               descript={descript}
               contribute={contribute}
@@ -186,6 +189,8 @@ function CategoryInput({
 function CategoryList({ 
     list, 
     index,
+    lists,
+    setLists,
     question, 
     descript,
     contribute,
@@ -225,6 +230,8 @@ function CategoryList({
       <div className={ accordion ? 'category-open' : 'category-close'}>
         <Question 
           questions={list.questions}
+          lists={lists}
+          setLists={setLists}
           question={question}
           descript={descript}
           contribute={contribute}
