@@ -1,6 +1,6 @@
 import React from "react";
 import '../../css/Search.css'
-const Search = ({onChange, search}) => {
+const Search = ({onChange, search, onClick}) => {
 
   return (
     <>
@@ -13,7 +13,7 @@ const Search = ({onChange, search}) => {
             className="searchTerm"
             placeholder="검색"
           />
-          <button className="searchButton">
+          <button className="searchButton" onClick={onClick}>
             <i className="fa fa-search"></i>
           </button>
         </div>
