@@ -4,8 +4,9 @@ import Home from './pages/Home/Home'
 import Assessment from './components/Assessment/Assessment';
 import Category from './components/Category/Category';
 import Navigation from './pages/Navigation';
-import Header from "./pages/Header";
-
+import Header from './pages/Header';
+import CreateAssessment from'./pages/EditAssess/CreateAssessment';
+import Main from './pages/Main/Main'
 
 function App() {
   return (
@@ -16,7 +17,9 @@ function App() {
       <Navigation></Navigation>
       <Route path="/" exact={true} component={Home}></Route>
       <Route path="/category" exact={true} component={Category}></Route>
-      <Route path="/assessment" exact={true} component={Assessment}></Route>   
+      <Route path="/assessment" exact={true} component={Assessment}></Route>
+      <Route path="/createassessment" exact={true} component={CreateAssessment} />
+      <Route path="/main" exact={true} component={Main} />
     </HashRouter>
     </>
   );

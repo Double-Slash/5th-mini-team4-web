@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+*{
+   font-family: 'Noto Sans KR', sans-serif;
+}
+
+.header{
+   background-color: #081A1C;
+   /* height: 20%; */
+   /* float: right; */
+   width: 100%;
+}
+
+.title{
+   text-align: center;
+ color:white;
+ font-size: 54px;
+ font-weight: bold;
+ padding: 24px;
+ /* width: 100%; */
+ /* padding: 10px; */
+}
+
+
+#exversions{
+   background: darkcyan;
+   font-size: 13px;
+   width:232px;
+   height: 48px;
+   color: white;
+   float: left;
+   text-align: left;
+   padding-top: 12px;
+   display:inline-block;
+}
+
+
+.send{
+   background: darkcyan;
+   width:200px;
+   height: 35px;
+   color: white;
+   float:right;
+   text-align: left;
+   margin-top: 11px;
+}
+
+#submenu{
+   text-align: left;
+   margin-top: 10px;
+   width: 202px;
+   height: 35px;
+   background: white;
+   position: absolute;
+   padding: 0;
+   list-style-type: none;
+   opacity: 1;
+   visibility: hidden;
+}
+
+li{
+   height: 30px;
+   margin-top: 10px;
+   padding-left:-5px;
+}
+
+
+#submenu ul li{
+   background-color: whitesmoke;
+   border: 1px solid gray;
+   width: 200px;
+   height: 1000px;
+   line-height: 400px;
+   float: left;
+   text-align: center;
+   text-decoration: none;
+}
+
+a{
+   font-size: 13px;
+   text-decoration: none;
+   color: gray;
+   padding-left: 10px;
+}
+
+#submenu ul li a{
+   text-decoration: none;
+   color:darkgray;
+   display: block;
+}
+
+li:hover #submenu{
+   opacity: 1;
+   visibility: visible;
+   background-color: white;
+}
+
+#submenu ul li a:hover{
+   color: white;
+   background-color: darkcyan;
+} /* 적용 x */
+
+.content{
+ background: whitesmoke;
+}

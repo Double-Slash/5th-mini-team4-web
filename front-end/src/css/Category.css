@@ -4,6 +4,7 @@
   align-items: center;
   background-color: #A2A9B0;
   padding: 0 16px 0 16px;
+  margin-bottom: 24px;
 }
 .category-flex {
   display: flex;
@@ -34,6 +35,7 @@
 
 .category-open {
   display: block;
+  margin-bottom: 24px;
 }
 
 .category-close {
