@@ -93,7 +93,11 @@ function CreateAssessment(){
   
     // 카테고리 삭제 
     const onCategoryRemove = (id) => {
-      setLists(lists.filter((list,index) => index !== id));
+      const newList = lists.slice(0);
+      newList.forEach((category,index) => {
+        category.categories = category.categories.filter((categ, i) => i !== id)
+      });
+      setLists(newList);
     }
   
     // 카테고리 추가
