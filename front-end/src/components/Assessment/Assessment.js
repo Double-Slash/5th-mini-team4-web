@@ -77,12 +77,11 @@ const Assessment = () => {
     },
   ];
 
-
   const [list, setList] = useState();
   const [check, setCheck] = useState([]);
   const [keyword, setKeyword] = useState("");
 
-  //사용자 클릭하면 그 사용자에 대한 댓글정보만 보이게끔 하는 기능 
+  //사용자 클릭하면 그 사용자에 대한 댓글정보만 보이게끔 하는 기능
   // 아직 아무런 기능없음
   const onClick = (e) => {
     setList([]);
@@ -102,71 +101,59 @@ const Assessment = () => {
   const handleChange = (e) => {
     setKeyword(e.target.value);
   };
-
-  // 여기 아래 로직및 주석은 필터기능 작업하기 위해서 만든것
-
-
-  // const filter = data.map((data)=>(
-  //   data.categories.map((categories) => (
-  //     categories.questions.map((questions)=>(
-  //       questions.answers.map((answers)=>{
-  //         answers.filter(answers => answers.answer.indexof(keyword) !== -1)
-  //       })
-  //     ))
-  //   ))
-  // ))
-
-
-  const [listtest,setListtest] = useState(data);
-  const handleClick = () => {
-    setListtest(data.filter((data) =>
-    data.categories.filter((categories) =>
-      categories.questions.filter((questions) =>
-        questions.answers.filter( (answers)=>
-          answers.answer.indexOf(keyword) !== -1 ? {...data, answers} : {data}
-          //answers.answer.indexOf(keyword) !== -1 ? setLe({...questions , answers:answers}) : console.log("아니다") 
-        )
-      )
-    )
-  ))
-  }
-
-  // const filter1 = data.filter((data) =>
-  //   data.categories.filter((categories) =>
-  //     categories.questions.filter((questions) =>
-  //       questions.answers.filter( (answers)=>
-  //         answers.answer.indexOf(keyword) !== -1 ? setLe(answers) : console.log("아니다") 
-  //       )
+  
+  // 검색필터를 클릭이벤트로 사용할시 
+  // const [serachList, setSerachList] = useState(data);
+  // const handleClick = () => {
+  //   setSerachList(
+  //     data.filter(
+  //       (data) =>
+  //         (data.categories = data.categories.filter(
+  //           (categories) =>
+  //             (categories.questions = categories.questions.filter(
+  //               (questions) =>
+  //                 (questions.answers = questions.answers.filter((answers) => {
+  //                   if (answers.answer.indexOf(keyword) !== -1) {
+  //                     return true;
+  //                   } else {
+  //                     return false;
+  //                   }
+  //                 }))
+  //             ))
+  //         ))
   //     )
-  //   )
-  // );
+  //   );
+  // };
 
-  // const [le, setLe] = useState();
-  // const filter1 = data.filter((data) => {
-
-  //   return(
-  //     data.categories.filter((categories) => {
-        
-  //       return(
-  //         categories.questions.filter((answers)=>
-  //             answers.writer.indexOf(keyword) !== -1 ? console.log("맞다") : console.log("아니다") 
-  //         )
-  //       )
-  //     })
-  //   )
-  // }
-  // );
-
+  const serachFilter = data.filter(
+    (data) =>
+      (data.categories = data.categories.filter(
+        (categories) =>
+          (categories.questions = categories.questions.filter(
+            (questions) =>
+              (questions.answers = questions.answers.filter((answers) => {
+                if (answers.answer.indexOf(keyword) !== -1) {
+                  return true;
+                } else {
+                  return false;
+                }
+              }))
+          ))
+      ))
+  );
 
   return (
     <>
       <div className="Assessment_container">
         <div className="Assessment">
-          <Search onChange={handleChange} value={keyword} onClick={handleClick}></Search>
+          <Search
+            onChange={handleChange}
+            value={keyword}
+          ></Search>
 
           <div>
             {/* 카테고리 제목과 questions부분 map으로 하위컴포넌트로 전달 */}
-            {data.map((data) =>
+            {serachFilter.map((data) =>
               data.categories.map((categories) => (
                 <Categories
                   onClick={onClick}
