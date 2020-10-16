@@ -21,8 +21,8 @@
 }
 
 .open{
-    display: flex;
-    flex-direction: row;
+    /* display: flex;
+    flex-direction: row; */
     margin: 10px;
     border-bottom: 1px solid;
 }
