@@ -162,11 +162,11 @@ function CreateAssessment(){
     }
   
     // 질문 삭제
-    const onQuestionRemove = (id, index) => {
+    const onQuestionRemove = (id, ind) => {
       const newList = lists.slice(0);
       newList[0].categories.forEach((category,index) => {
         if(index === id) {
-          category.questions = category.questions.filter((question, i) => i !== index)
+          category.questions = category.questions.filter((question, i) => i !== ind)
         }
       });
       setLists(newList);
