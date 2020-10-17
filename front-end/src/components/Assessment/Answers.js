@@ -7,7 +7,7 @@ import Writer from "./Writer";
 //카테고리 -> 질문 제목, 사용자 및 댓글 정보..
 const Answers = ({ question, answers, onClick }) => {
   const [accordion, setAccordion] = useState(true);
-
+  const c= 12;
   return (
     <>
     {/* 질문 제목출력 */}
