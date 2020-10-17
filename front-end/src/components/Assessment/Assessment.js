@@ -55,7 +55,6 @@ const Assessment = () => {
             },
           ],
         },
-
         {
           category: "개발",
           questions: [
@@ -66,7 +65,29 @@ const Assessment = () => {
               answers: [
                 {
                   writer: "사용자2",
-                  answer: "조사",
+                  answer: "개발조사를 잘한다.",
+                  contribution: 10,
+                },
+              ],
+            },
+          ],
+        },
+        {
+          category: "팀워크",
+          questions: [
+            {
+              question: "팀워크 능력은?",
+              description: true,
+              contribution: false,
+              answers: [
+                {
+                  writer: "사용자2",
+                  answer: "협업능력 뛰어남",
+                  contribution: 10,
+                },
+                {
+                  writer: "사용자3",
+                  answer: "4번은 개인주의야!",
                   contribution: 10,
                 },
               ],
@@ -77,54 +98,40 @@ const Assessment = () => {
     },
   ];
 
-  const [list, setList] = useState();
-  const [check, setCheck] = useState([]);
   const [keyword, setKeyword] = useState("");
+  const [newList, setNewList] = useState();
+  const [clickCheck, setClickCheck] = useState(false);
 
-  //사용자 클릭하면 그 사용자에 대한 댓글정보만 보이게끔 하는 기능
-  // 아직 아무런 기능없음
+  //사용자 클릭시
   const onClick = (e) => {
-    setList([]);
-    data.map((data) =>
-      data.categories.map((categories) =>
-        categories.questions.map((questions) =>
-          questions.answers.map((answers) => {
-            if (answers.writer === e.target.value) {
-              setList({ ...list, answers });
-            }
-          })
-        )
-      )
+    console.log(e.target.value);
+    const clickWriter = data.filter(
+      (data) =>
+        (data.categories = data.categories.filter(
+          (categories) =>
+            (categories.questions = categories.questions.filter(
+              (questions) =>
+                (questions.answers = questions.answers.filter((answers) => {
+                  if (answers.writer === e.target.value) {
+                    return true;
+                  } else {
+                    return false;
+                  }
+                }))
+            ))
+        ))
     );
+    setClickCheck(!clickCheck);
+    setNewList(clickWriter);
   };
 
+  //검색 문자열
   const handleChange = (e) => {
     setKeyword(e.target.value);
   };
-  
-  // 검색필터를 클릭이벤트로 사용할시 
-  // const [serachList, setSerachList] = useState(data);
-  // const handleClick = () => {
-  //   setSerachList(
-  //     data.filter(
-  //       (data) =>
-  //         (data.categories = data.categories.filter(
-  //           (categories) =>
-  //             (categories.questions = categories.questions.filter(
-  //               (questions) =>
-  //                 (questions.answers = questions.answers.filter((answers) => {
-  //                   if (answers.answer.indexOf(keyword) !== -1) {
-  //                     return true;
-  //                   } else {
-  //                     return false;
-  //                   }
-  //                 }))
-  //             ))
-  //         ))
-  //     )
-  //   );
-  // };
+  console.log(newList === undefined ? console.log("A") : console.log("B"));
 
+  //검색 필터링 기능 댓글 or 사용자 기준으로 검색가능
   const serachFilter = data.filter(
     (data) =>
       (data.categories = data.categories.filter(
@@ -132,7 +139,7 @@ const Assessment = () => {
           (categories.questions = categories.questions.filter(
             (questions) =>
               (questions.answers = questions.answers.filter((answers) => {
-                if (answers.answer.indexOf(keyword) !== -1) {
+                if (answers.answer.indexOf(keyword) !== -1 || answers.writer===keyword ) {
                   return true;
                 } else {
                   return false;
@@ -146,10 +153,8 @@ const Assessment = () => {
     <>
       <div className="Assessment_container">
         <div className="Assessment">
-          <Search
-            onChange={handleChange}
-            value={keyword}
-          ></Search>
+          {/* 키워드 검색 컴포넌트 */}
+          <Search onChange={handleChange} value={keyword}></Search>
 
           <div>
             {/* 카테고리 제목과 questions부분 map으로 하위컴포넌트로 전달 */}

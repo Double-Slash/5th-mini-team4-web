@@ -6,15 +6,10 @@ import chevronup from "../../images/chevronup.svg";
 const Categories = ({ categories, questions, onClick }) => {
   //질문 카테고리
   const [accordion, setAccordion] = useState(true);
-  
-  const [value, setValue] = useState(questions);
-
-  // const onClick = (e) => {
-  //   setValue(answers.filter((answers) => answers.writer === e.target.value));
-  // };
 
   return (
     <>
+      {/* 카테고리 제목 출력 */}
       <div className="categories_s">
         <div className="category_s_wrap">
           <div className="category_s">{categories}</div>
