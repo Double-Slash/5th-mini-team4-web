@@ -1,7 +1,7 @@
 import React from "react";
 import '../../css/Search.css'
 const Search = ({onChange, search }) => {
-
+  const w=15;
   return (
     <>
       <div className="search_wrap">
