@@ -25,6 +25,15 @@ const Home = () => {
             <td>3교시</td>
         </tr>
       </table>
+
+      <div>
+          <ul>
+              <li>월</li>
+              <li>화</li>
+              <li>수</li>
+              <li>목</li>
+          </ul>
+      </div>
     </>
   );
 };
