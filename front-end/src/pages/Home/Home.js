@@ -5,7 +5,9 @@ const Home = () => {
   return (
     <>
       HOME
-      
+      <ul>
+        <li>ㅇㅇㅇ</li>
+      </ul>
     </>
   );
 };
