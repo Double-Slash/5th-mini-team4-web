@@ -98,7 +98,10 @@ const Assessment = () => {
     },
   ];
 
-  
+  const a = 10;
+  const bc= 101;
+
+  const test = 1111;
   const [keyword, setKeyword] = useState("");
   const [newList, setNewList] = useState();
   const [clickCheck, setClickCheck] = useState(false);

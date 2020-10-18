@@ -8,8 +8,7 @@ const Home = () => {
       <ul>
         <li>ㅇㅇㅇ</li>
         <li>2222</li>
-        <li>2333</li>
-        <li>4444</li>
+        <li>sadsads</li>
       </ul>
     </>
   );
