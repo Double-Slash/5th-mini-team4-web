@@ -5,35 +5,7 @@ const Home = () => {
   return (
     <>
       HOME
-      <table>
-        <tr>
-            <td></td>
-          <th>월</th>
-          <th>화</th>
-          <th>수</th>
-        </tr>
-        <tr>
-            <td>1교시</td>
-            <td>국어</td>
-            <td>영어</td>
-            <td>수학</td>
-        </tr>
-        <tr>
-            <td>2교시</td>
-        </tr>
-        <tr>
-            <td>3교시</td>
-        </tr>
-      </table>
-
-      <div>
-          <ul>
-              <li>월</li>
-              <li>화</li>
-              <li>수</li>
-              <li>목</li>
-          </ul>
-      </div>
+      
     </>
   );
 };

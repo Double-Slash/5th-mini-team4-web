@@ -6,7 +6,6 @@ import chevronup from "../../images/chevronup.svg";
 const Categories = ({ categories, questions, onClick }) => {
   //질문 카테고리
   const [accordion, setAccordion] = useState(true);
-  const b= 10;
   return (
     <>
       {/* 카테고리 제목 출력 */}
