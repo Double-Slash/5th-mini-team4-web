@@ -7,6 +7,7 @@ const Home = () => {
       HOME
       <ul>
         <li>ㅇㅇㅇ</li>
+        <li>2222</li>
       </ul>
     </>
   );
