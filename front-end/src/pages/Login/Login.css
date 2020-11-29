@@ -1,0 +1,78 @@
+.loginBack {
+  background-image: url('../../images/loginBack.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 1000px;
+}
+
+.container {
+  position: relative;
+  left: 234px;
+  top:72px;
+  width: 464px;
+}
+
+.loginInput {
+  background-color: #f2f4f8;
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 64px;
+  padding: 16px 17px;
+  border-bottom: 2px solid #707070;
+}
+.passwordInput{
+  background-image: url('../../images/view.svg');
+  background-position: right 16px center;
+  background-repeat: no-repeat;
+  background-size: 32px;
+  background-color: #f2f4f8;
+  border: none;
+  border-bottom: 2px solid #707070;
+  outline: none;
+  width: 100%;
+  height: 64px;
+  padding: 16px 17px;
+}
+
+.loginInput::placeholder, .passwordInput::placeholder{
+  font-size: 20px;
+  color: #c1c7cd;
+}
+
+.loginButton{
+  background-color: #08bdba;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.googleButton{
+  padding: 17px 20px;
+  border: 2px solid #08bdba;
+   display: flex;
+   justify-content: space-between;
+}
+
+.signUpButton{
+  text-decoration: underline;
+  color: #08bdba;
+  font-size: 16px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.helpButton{
+  text-decoration: underline;
+  color: #08bdba;
+  font-size: 12px;
+  margin-left: 11px;
+  cursor: pointer;
+}
+
+.infoLabel{
+  font-size: 12px;
+  color: #707070;
+}
