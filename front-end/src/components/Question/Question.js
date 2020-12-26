@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 
 import '../../css/Question.css';
+import {ChevronDown32, ChevronUp32, Close32} from "@carbon/icons-react";
+import chevrondown from '../../images/chevrondown.svg'
+import chevronup from '../../images/chevronup.svg'
+import caretup from '../../images/caretup.svg'
+import caretdown from '../../images/caretdown.svg'
 
 function Question({ 
     questions,
@@ -94,20 +99,21 @@ function Question({
 
 const QuestionList = ({ onQuestionRemove, questions, index}) => {
 
+    const [accordion, setAccordion] = useState(false);
+
     return(
         <>
             <div className="Question_questionList">
                 {questions?.map((question,i)=>(
                         <div key={i} className="Question_question">
                             <div className="Question_questionName"> <label>{question.question}</label> </div>
-                            <div className="Question_questionOption">
-                                <label>서술형</label>
-                                <input type="checkbox" readOnly defaultChecked={question.description} />
-                                <label>점수형</label>
-                                <input type="checkbox" readOnly defaultChecked={question.contribution} />
-                                <span>
-                            <img src={require("../../images/close.svg")} onClick={() => onQuestionRemove(index, i)}/>
-                            </span>
+                            <div className="QuestionOptionWrapper">
+                                <div className="Question_questionOption" onClick={() => setAccordion(!accordion)}>
+                                    {accordion ? <ChevronUp32/> : <ChevronDown32/>}
+                                </div>
+                                <div className="Question_questionOption">
+                                    <Close32 />
+                                </div>
                             </div>
                         </div>
                 ))}

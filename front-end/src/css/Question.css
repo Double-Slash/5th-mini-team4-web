@@ -1,20 +1,31 @@
 .Question_question{
-    height: 30px;
-    font-size: 16px;
+    height: 35px;
+    font-size: 20px;
     display: flex;
     border-bottom: 1px solid #A2A9B0;
-    margin: 12px;
+    align-items: center;
+    justify-content: space-between;
+    /*margin: 12px;*/
 }
 
 .Question_questionOption>*{
     margin-right: 16px;
 }
 
-.Question_questionName{
-    flex: 1;
+.Question_questionOption{
+    height: 35px;
 }
 
-.Question_question>div>span>img{
+.QuestionOptionWrapper{
+    display: flex;
+}
+
+.Question_questionName{
+    min-height: 30px;
+    margin: 9px 16px;
+}
+
+.Question_question>div>div>img{
     width: 20px;
     height: 20px;
 }
