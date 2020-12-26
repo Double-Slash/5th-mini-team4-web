@@ -161,52 +161,31 @@ function CreateAssessment() {
   };
 
   return (
-    console.log(lists),
-      <>
-        <div className="title-wrapper">
-          <div className="title">{lists[0]?.assessment}</div>
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <div>
-            <Category
-              categories={lists[0]?.categories}
-              inputs={inputs}
-              setInputs={setInputs}
-              lists={lists}
-              setLists={setLists}
-              descript={descript}
-              setDescript={setDescript}
-              contribute={contribute}
-              setContribute={setContribute}
-              onCategoryRemove={onCategoryRemove}
-              onCategoryAdd={onCategoryAdd}
-              onChangeTitle={onChangeTitle}
-              onChangeQuestion={onChangeQuestion}
-              onQuestionAdd={onQuestionAdd}
-              onQuestionRemove={onQuestionRemove}
-              onDescriptChange={onDescriptChange}
-              onContributeChange={onContributeChange}
-            />
-          </div>
-        </div>
-        </div>
-      </>
-    )
-  );
-}
-
-function PrevAssessment() {
-  return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        width: 232,
-        height: 48,
-        padding: "11px 8px 13px 16px",
-      }}
-    >
-      <div>2018.04.12</div>
-      <div>004</div>
+    <div className="assessment-create-container">
+      <div className="title-wrapper">
+        <div className="title">{lists[0]?.assessment}</div>
+      </div>
+      <div className="category-container">
+        <Category
+          categories={lists[0]?.categories}
+          inputs={inputs}
+          setInputs={setInputs}
+          lists={lists}
+          setLists={setLists}
+          descript={descript}
+          setDescript={setDescript}
+          contribute={contribute}
+          setContribute={setContribute}
+          onCategoryRemove={onCategoryRemove}
+          onCategoryAdd={onCategoryAdd}
+          onChangeTitle={onChangeTitle}
+          onChangeQuestion={onChangeQuestion}
+          onQuestionAdd={onQuestionAdd}
+          onQuestionRemove={onQuestionRemove}
+          onDescriptChange={onDescriptChange}
+          onContributeChange={onContributeChange}
+        />
+      </div>
     </div>
   );
 }
