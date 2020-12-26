@@ -165,82 +165,36 @@ function CreateAssessment(){
       setContribute(!contribute)
     }
 
-    return (
-      console.log(lists),
-            <>
-                <div>
-                  <div className="header">
-                    <div className="title">{lists[0]?.assessment}</div>
-                    
-                    <div style={{ 
-                      display: 'flex', 
-                      justifyContent: 'space-between',
-                      padding: '0 32px 0 32px'}}>
-
-                      <div style={{ display: 'flex', 
-                          justifyContent: 'space-between',
-                          alignItems: 'center',
-                          backgroundColor: '#009D9A',
-                          padding: '0 16px 0 16px',
-                          width: 232,
-                          height: 48,
-                          cursor:'pointer' }}
-                          onClick={onActiveClick}>
-                        <div>이전 버전</div>
-                        <img style={{ width: 32, height: 32}} alt='accordion' src={ active ? chevronup : chevrondown} />
-                      </div>
-                      <Link to="/main">
-                      <div style={{ 
-                          display: 'flex', 
-                          justifyContent: 'space-between', 
-                          alignItems: 'center', 
-                          padding: '0 8px 0 16px',
-                          backgroundColor: '#009D9A',
-                          color:'white',
-                          width: 232,
-                          height: 48,
-                          cursor: 'pointer'}}>
-                          <div>보내기</div>
-                        <img style={{ width: 32, height: 32}} alt='send' src={send} />
-                      </div>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-                <div style={{ padding: '0 0 0 32px', position: 'absolute'}}>
-                  {
-                    active ? 
-                      <>
-                        <PrevAssessment />
-                        <div  style={{ borderBottom: 'solid', borderColor: '#707070'}}/>
-                      </>
-                      : null
-                  }
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'center'}}>
-                  <div style={{ padding:'0 264px 0 264px', marginTop: 64, flex: 1 }}>
-                    <Category 
-                      categories={lists[0]?.categories} 
-                      inputs={inputs}
-                      setInputs={setInputs}
-                      lists={lists}
-                      setLists={setLists}
-                      descript={descript}
-                      setDescript={setDescript}
-                      contribute={contribute}
-                      setContribute={setContribute}
-                      onCategoryRemove={onCategoryRemove}
-                      onCategoryAdd={onCategoryAdd}
-                      onChangeTitle={onChangeTitle}
-                      onChangeQuestion={onChangeQuestion}
-                      onQuestionAdd={onQuestionAdd}
-                      onQuestionRemove={onQuestionRemove}
-                      onDescriptChange={onDescriptChange}
-                      onContributeChange={onContributeChange}
-                    />
-                  </div>
-                </div>
-            </>
+  return (
+    console.log(lists),
+      <>
+        <div className="title-wrapper">
+          <div className="title">{lists[0]?.assessment}</div>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <div>
+            <Category
+              categories={lists[0]?.categories}
+              inputs={inputs}
+              setInputs={setInputs}
+              lists={lists}
+              setLists={setLists}
+              descript={descript}
+              setDescript={setDescript}
+              contribute={contribute}
+              setContribute={setContribute}
+              onCategoryRemove={onCategoryRemove}
+              onCategoryAdd={onCategoryAdd}
+              onChangeTitle={onChangeTitle}
+              onChangeQuestion={onChangeQuestion}
+              onQuestionAdd={onQuestionAdd}
+              onQuestionRemove={onQuestionRemove}
+              onDescriptChange={onDescriptChange}
+              onContributeChange={onContributeChange}
+            />
+          </div>
+        </div>
+        </div>
+      </>
     )
 }
 
