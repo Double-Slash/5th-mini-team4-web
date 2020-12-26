@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../../css/Category.css'
 import Question from '../Question/Question'
 // image
+import {ChevronDown32, ChevronUp32, Close32} from "@carbon/icons-react";
 import add from '../../images/add.svg'
 import chevrondown from '../../images/chevrondown.svg'
 import chevronup from '../../images/chevronup.svg'
@@ -203,26 +204,16 @@ function CategoryList({
   const [accordion, setAccordion] = useState(false);
   return(
     <>
-      <div className='container'>
+      <div className='question-wrapper'>
         <div className='category-flex'>
           <div className='category-label'>{list.category}</div>
         </div>
         <div className='category-right '>
-          <div className='cateogry-icon'>
-            <img alt='caretup' src={caretup} />
-            <img alt='caretdown' src={caretdown} />
-          </div>
-
-          <div className='spacer'/>
-
           <div onClick={() => setAccordion(!accordion)}>
-            <img alt='accordion' src={ accordion ? chevronup : chevrondown} />
+              {accordion ? <ChevronUp32/> : <ChevronDown32/>}
           </div>
-
-          <div className='spacer'/>
-          
           <div onClick={() => onCategoryRemove(index)}>
-            <img alt='activeCategory' src={close} />
+            <Close32 />
           </div>
         </div>
       </div>
