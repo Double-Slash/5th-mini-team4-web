@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "../../css/Question.css";
 import {
   Add32,
+  Checkbox32, CheckboxCheckedFilled32,
   ChevronDown32,
   ChevronUp32,
   Close32,
@@ -102,27 +103,45 @@ function Question({
 
 const QuestionList = ({ onQuestionRemove, questions, index }) => {
   const [accordion, setAccordion] = useState(false);
+  const [isQuality, setQuality] = useState(false);
+  const [isAmount, setAmount] = useState(false);
 
   return (
     <>
       <div className="question-content">
         {questions?.map((question, i) => (
-          <div key={i} className="question-container">
-            <div className="question-name">
-              <div>{question.question}</div>
-            </div>
-            <div className="question-button-wrapper">
-              <div
-                className="question-button"
-                onClick={() => setAccordion(!accordion)}
-              >
-                {accordion ? <ChevronUp32 /> : <ChevronDown32 />}
+          <>
+            <div key={i} className="question-container">
+              <div className="question-name">
+                <div>{question.question}</div>
               </div>
-              <div className="question-button" onClick={() => onQuestionRemove}>
-                <Close32 />
+              <div className="question-button-wrapper">
+                <div
+                  className="question-button"
+                  onClick={() => setAccordion(!accordion)}
+                >
+                  {accordion ? <ChevronUp32 /> : <ChevronDown32 />}
+                </div>
+                <div
+                  className="question-button"
+                  onClick={() => onQuestionRemove}
+                >
+                  <Close32 />
+                </div>
               </div>
             </div>
-          </div>
+
+            <div className="answer-large-category-wrapper">
+            <div className="answer-large-category" onClick={() => setQuality(!isQuality)}>
+              <label>질적</label>
+              {isQuality? <CheckboxCheckedFilled32 />:<Checkbox32 />}
+            </div>
+            <div className="answer-large-category" onClick={() => setAmount(!isAmount)}>
+              <label>양적</label>
+              {isAmount ? <CheckboxCheckedFilled32 />:<Checkbox32 />}
+            </div>
+            </div>
+          </>
         ))}
       </div>
     </>

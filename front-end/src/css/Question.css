@@ -50,3 +50,17 @@
     align-items: center;
     justify-content: center;
 }
+
+.answer-large-category{
+    height: 48px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 16px;
+    align-items: center;
+}
+
+.answer-large-category-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid #A2A9B0;
+}
