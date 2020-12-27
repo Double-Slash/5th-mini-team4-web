@@ -94,3 +94,21 @@
     background-color: #f2f4f8;
     height: 1.5rem;
 }
+
+.answer-input-container{
+    background-color: #f2f4f8;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.answer-input-container>label{
+    color: #000000;
+    font-size: 12px;
+}
+
+.answer-input-container>div{
+    display: flex;
+    width: 18rem;
+    justify-content: space-between;
+}

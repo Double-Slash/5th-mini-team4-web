@@ -8,7 +8,7 @@ import {
   ChevronDown32,
   ChevronUp32,
   Close32,
-  RadioButton32,
+  RadioButton32, RadioButtonChecked32,
 } from "@carbon/icons-react";
 
 function Question({
@@ -107,6 +107,7 @@ const QuestionList = ({ onQuestionRemove, questions, index }) => {
   const [accordion, setAccordion] = useState(false);
   const [isQuality, setQuality] = useState(false);
   const [isAmount, setAmount] = useState(false);
+  const [score, setScore] = useState(0);
 
   return (
     <>
@@ -176,6 +177,26 @@ const QuestionList = ({ onQuestionRemove, questions, index }) => {
                   </div>
                   <div className="answer-input-wrapper">
                     <input type="text" placeholder="숫자를 적어주세요" />
+                  </div>
+                </div>
+
+                <div className="answer-small-category-wrapper">
+                  <div className="answer-small-category">
+                    <label>5점 질문</label>
+                    <RadioButton32 />
+                  </div>
+                  <div
+                    className="answer-input-container"
+                  >
+                    <label>매우 아니다</label>
+                    <div>
+                      <div onClick={() => setScore(1)}>{score==1 ? <RadioButtonChecked32 /> : <RadioButton32 />}</div>
+                      <div onClick={() => setScore(2)}>{score==2 ? <RadioButtonChecked32 /> : <RadioButton32 />}</div>
+                      <div onClick={() => setScore(3)}>{score==3 ? <RadioButtonChecked32 /> : <RadioButton32 />}</div>
+                      <div onClick={() => setScore(4)}>{score==4 ? <RadioButtonChecked32 /> : <RadioButton32 />}</div>
+                      <div onClick={() => setScore(5)}>{score==5 ? <RadioButtonChecked32 /> : <RadioButton32 />}</div>
+                    </div>
+                    <label>매우 그렇다</label>
                   </div>
                 </div>
               </div>
