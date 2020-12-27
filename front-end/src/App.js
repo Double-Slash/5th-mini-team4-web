@@ -7,7 +7,7 @@ import Navigation from './pages/Navigation';
 import Header from './pages/Header';
 import CreateAssessment from'./pages/EditAssess/CreateAssessment';
 import Main from './pages/Main/Main'
-
+import Document from './components/DocumentPage/Document'
 function App() {
   return (
     <>
@@ -19,6 +19,7 @@ function App() {
       <Route path="/category" exact={true} component={Category}></Route>
       <Route path="/assessment" exact={true} component={Assessment}></Route>
       <Route path="/createassessment" exact={true} component={CreateAssessment} />
+      <Route path="/document" exact={true} component={Document} />
       <Route path="/main" exact={true} component={Main} />
     </HashRouter>
     </>
