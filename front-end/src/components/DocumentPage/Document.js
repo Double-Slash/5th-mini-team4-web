@@ -1,10 +1,10 @@
 import React from "react";
-
+import Personal from './Personal';
 const Document = () => {
   return (
     <>
-      <div className="container">
-          <h3>개인용</h3>
+      <div className="">
+        <Personal></Personal>
       </div>
     </>
   );
