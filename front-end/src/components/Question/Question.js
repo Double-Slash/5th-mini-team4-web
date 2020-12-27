@@ -3,10 +3,12 @@ import React, { useState } from "react";
 import "../../css/Question.css";
 import {
   Add32,
-  Checkbox32, CheckboxCheckedFilled32,
+  Checkbox32,
+  CheckboxCheckedFilled32,
   ChevronDown32,
   ChevronUp32,
   Close32,
+  RadioButton32,
 } from "@carbon/icons-react";
 
 function Question({
@@ -131,15 +133,52 @@ const QuestionList = ({ onQuestionRemove, questions, index }) => {
               </div>
             </div>
 
-            <div className="answer-large-category-wrapper">
-            <div className="answer-large-category" onClick={() => setQuality(!isQuality)}>
-              <label>질적</label>
-              {isQuality? <CheckboxCheckedFilled32 />:<Checkbox32 />}
-            </div>
-            <div className="answer-large-category" onClick={() => setAmount(!isAmount)}>
-              <label>양적</label>
-              {isAmount ? <CheckboxCheckedFilled32 />:<Checkbox32 />}
-            </div>
+            <div className="answer-large-category-container">
+              <div className="answer-wrapper">
+                <div
+                  className="answer-large-category"
+                  onClick={() => setQuality(!isQuality)}
+                >
+                  <label>질적</label>
+                  {isQuality ? <CheckboxCheckedFilled32 /> : <Checkbox32 />}
+                </div>
+                <div className="answer-small-category-wrapper">
+                  <div className="answer-small-category">
+                    <label>단문</label>
+                    <RadioButton32 />
+                  </div>
+                  <div className="answer-input-wrapper">
+                    <input type="text" placeholder="원하는 말을 적어주세요" />
+                  </div>
+                </div>
+                <div className="answer-small-category-wrapper">
+                  <div className="answer-small-category">
+                    <label>장문</label>
+                    <RadioButton32 />
+                  </div>
+                  <div className="answer-input-wrapper">
+                    <input type="text" placeholder="원하는 말을 적어주세요" />
+                  </div>
+                </div>
+              </div>
+              <div className="answer-wrapper">
+                <div
+                  className="answer-large-category"
+                  onClick={() => setAmount(!isAmount)}
+                >
+                  <label>양적</label>
+                  {isAmount ? <CheckboxCheckedFilled32 /> : <Checkbox32 />}
+                </div>
+                <div className="answer-small-category-wrapper">
+                  <div className="answer-small-category">
+                    <label>숫자 입력</label>
+                    <RadioButton32 />
+                  </div>
+                  <div className="answer-input-wrapper">
+                    <input type="text" placeholder="숫자를 적어주세요" />
+                  </div>
+                </div>
+              </div>
             </div>
           </>
         ))}
