@@ -1,0 +1,36 @@
+.personal_container{
+    background-color:#f2f4f8;
+}
+.personal_subtitle{
+    opacity: 0.3;
+}
+.personal_make_text{
+    float: left;
+    font-size: x-large;
+    text-align: left;
+}
+
+.personal_component1{
+}
+
+.personal_make{
+    color: white;
+    background-color: #08bdba;
+    width: 224px;
+    height: 48px;
+}
+
+.personal_component1_icon{
+    float: right;
+}
+
+svg.personal_icon{
+    margin-right: 30px;
+}
+
+.personal_contitle > div{
+    font-size: 20px;
+    display: inline;
+    padding: 0 10% 0 20%;
+    background-color: #dde1e6;
+}
