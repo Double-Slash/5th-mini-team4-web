@@ -8,12 +8,16 @@ import {
   RadioButton32,
   RadioButtonChecked32,
 } from "@carbon/icons-react";
+import "../../css/Question.css";
 
 const QuestionList = ({ onQuestionRemove, questions, index }) => {
   const [accordion, setAccordion] = useState(false);
   const [isQuality, setQuality] = useState(false);
   const [isAmount, setAmount] = useState(false);
   const [score, setScore] = useState(0);
+
+  const [qualitySmallCategory, setQualitySmallCategory] = useState("");
+  const [quantitySmallCategory, setQuantitySmallCategory] = useState("");
 
   return (
     <>
@@ -50,18 +54,32 @@ const QuestionList = ({ onQuestionRemove, questions, index }) => {
                   {isQuality ? <CheckboxCheckedFilled32 /> : <Checkbox32 />}
                 </div>
                 <div className="answer-small-category-wrapper">
-                  <div className="answer-small-category">
+                  <div
+                    className="answer-small-category"
+                    onClick={() => setQualitySmallCategory("short")}
+                  >
                     <label>단문</label>
-                    <RadioButton32 />
+                    {qualitySmallCategory === "short" ? (
+                      <RadioButtonChecked32 />
+                    ) : (
+                      <RadioButton32 />
+                    )}
                   </div>
                   <div className="answer-input-container">
                     <input type="text" placeholder="원하는 말을 적어주세요" />
                   </div>
                 </div>
                 <div className="answer-small-category-wrapper">
-                  <div className="answer-small-category">
+                  <div
+                    className="answer-small-category"
+                    onClick={() => setQualitySmallCategory("long")}
+                  >
                     <label>장문</label>
-                    <RadioButton32 />
+                    {qualitySmallCategory === "long" ? (
+                      <RadioButtonChecked32 />
+                    ) : (
+                      <RadioButton32 />
+                    )}
                   </div>
                   <div className="answer-input-container">
                     <input type="text" placeholder="원하는 말을 적어주세요" />
@@ -77,9 +95,9 @@ const QuestionList = ({ onQuestionRemove, questions, index }) => {
                   {isAmount ? <CheckboxCheckedFilled32 /> : <Checkbox32 />}
                 </div>
                 <div className="answer-small-category-wrapper">
-                  <div className="answer-small-category">
+                  <div className="answer-small-category" onClick={()=>setQuantitySmallCategory("number")}>
                     <label>숫자 입력</label>
-                    <RadioButton32 />
+                    {quantitySmallCategory==="number"?<RadioButtonChecked32 />:<RadioButton32/>}
                   </div>
                   <div className="answer-input-container">
                     <input type="text" placeholder="숫자를 적어주세요" />
@@ -87,9 +105,9 @@ const QuestionList = ({ onQuestionRemove, questions, index }) => {
                 </div>
 
                 <div className="answer-small-category-wrapper">
-                  <div className="answer-small-category">
+                  <div className="answer-small-category" onClick={()=>setQuantitySmallCategory("score")}>
                     <label>5점 질문</label>
-                    <RadioButton32 />
+                    {quantitySmallCategory==="score"?<RadioButtonChecked32 />:<RadioButton32/>}
                   </div>
                   <div className="answer-input-container">
                     <label>매우 아니다</label>
@@ -134,9 +152,9 @@ const QuestionList = ({ onQuestionRemove, questions, index }) => {
                   </div>
                 </div>
                 <div className="answer-small-category-wrapper">
-                  <div className="answer-small-category">
+                  <div className="answer-small-category" onClick={()=>setQuantitySmallCategory("yesOrNo")}>
                     <label>예/아니오</label>
-                    <RadioButton32 />
+                    {quantitySmallCategory==="yesOrNo"?<RadioButtonChecked32 />:<RadioButton32/>}
                   </div>
                   <div className="answer-input-container answer-boolean">
                     <div className="answer-boolean-input">
