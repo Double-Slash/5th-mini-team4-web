@@ -3,29 +3,25 @@ import Category from "../../components/Category/Category";
 import "./CreateAssessment.css";
 
 function CreateAssessment() {
-  const [assessment, setAssessment] = useState([]);
-  const [active, setActive] = useState(false);
-  const [lists, setLists] = useState([
-    {
-      assessment: "테스트 에세스먼트",
+  const [list, setList] = useState({
       categories: [
         {
           category: "개발",
           questions: [
             {
-              question: "개발이 괜찮나?",
-              description: false,
-              contribution: true,
-            },
-            {
-              question: "개발이 괜찮나?",
-              description: false,
-              contribution: true,
-            },
-            {
-              question: "개발이 괜찮나?",
-              description: false,
-              contribution: true,
+              question: {
+                title: "개발이 괜찮나?",
+                answers: [
+                  {
+                    type: "short",
+                    description: "짧은 응답",
+                  },
+                  {
+                    type: "number",
+                    description: "4",
+                  },
+                ],
+              },
             },
           ],
         },
@@ -33,19 +29,19 @@ function CreateAssessment() {
           category: "기획",
           questions: [
             {
-              question: "기획이 괜찮나?",
-              description: true,
-              contribution: true,
-            },
-            {
-              question: "기획이 괜찮나?",
-              description: true,
-              contribution: true,
-            },
-            {
-              question: "기획이 괜찮나?",
-              description: true,
-              contribution: true,
+              question: {
+                title: "개발이 괜찮나?",
+                answers: [
+                  {
+                    type: "short",
+                    description: "짧은 응답",
+                  },
+                  {
+                    type: "number",
+                    description: "4",
+                  },
+                ],
+              },
             },
           ],
         },
@@ -53,139 +49,132 @@ function CreateAssessment() {
           category: "디자인",
           questions: [
             {
-              question: "디자인이 괜찮나?",
-              description: true,
-              contribution: false,
-            },
-            {
-              question: "디자인이 괜찮나?",
-              description: true,
-              contribution: false,
-            },
-            {
-              question: "디자인이 괜찮나?",
-              description: true,
-              contribution: false,
+              question: {
+                title: "개발이 괜찮나?",
+                answers: [
+                  {
+                    type: "short",
+                    description: "짧은 응답",
+                  },
+                  {
+                    type: "number",
+                    description: "4",
+                  },
+                ],
+              },
             },
           ],
         },
       ],
-    },
-  ]);
-
-  const onActiveClick = () => {
-    setActive(!active);
-  };
+    });
 
   const [inputs, setInputs] = useState({
+    title: "",
     category: "",
     question: "",
   });
-  const [descript, setDescript] = useState(false);
-  const [contribute, setContribute] = useState(false);
-  const { category, question } = inputs;
-  //const [lists, setLists] = useState(categories)
+
+  const { title, category, question } = inputs;
+
+  const onChangeTitle = (e) => {
+    setInputs({ title: e.target.value });
+  };
 
   // 카테고리 삭제
   const onCategoryRemove = (id) => {
-    const newList = lists.slice(0);
-    newList.forEach((category, index) => {
+    
+    list.forEach((category, index) => {
       category.categories = category.categories.filter((categ, i) => i !== id);
     });
-    setLists(newList);
+    setList(list);
   };
 
   // 카테고리 추가
   const onCategoryAdd = () => {
-    const newList = lists.slice(0);
-    newList.forEach((list) => {
+    
+    list.forEach((list) => {
       list.categories = list.categories.concat({
         category,
         questions: [],
       });
     });
-    setLists(newList);
+    setList(list);
     setInputs({ category: "" });
   };
 
   // 카테고리 input 변경
-  const onChangeTitle = (e) => {
+  const onChangeCategoryName = (e) => {
     setInputs({ category: e.target.value });
   };
 
   // 질문 input 변경
   const onChangeQuestion = (e) => {
     setInputs({ question: e.target.value });
+    console.log(question);
   };
 
   // 질문 추가
   const onQuestionAdd = (id) => {
-    const newList = lists.slice(0);
-    newList[0].categories.forEach((category, index) => {
-      console.log("test", category);
+    
+    list[0].categories.forEach((category, index) => {
       if (index === id) {
         category.questions = category.questions.concat({
-          question,
-          description: descript,
-          contribution: contribute,
+          question: {
+            title: question,
+          },
         });
       }
     });
-    setLists(newList);
-    setDescript(false);
-    setContribute(false);
+    setList(list);
     setInputs({ question: "" });
   };
 
   // 질문 삭제
   const onQuestionRemove = (id, ind) => {
-    const newList = lists.slice(0);
-    newList[0].categories.forEach((category, index) => {
+    
+    list[0].categories.forEach((category, index) => {
       if (index === id) {
         category.questions = category.questions.filter(
           (question, i) => i !== ind
         );
       }
     });
-    setLists(newList);
+    setList(list);
   };
 
-  // 서술형 체크
-  const onDescriptChange = (e) => {
-    setDescript(!descript);
-  };
-
-  // 점수형 체크
-  const onContributeChange = (e) => {
-    setContribute(!contribute);
+  const onSubmitAssessment = () => {
+    console.log({
+      title: title,
+      lists: list
+    });
   };
 
   return (
     <div className="assessment-create-container">
       <div className="title-wrapper">
-        <div className="title">{lists[0]?.assessment}</div>
+        <input
+          type="text"
+          onChange={onChangeTitle}
+          placeholder="평가 제목을 입력해주세요."
+          className="title"
+        />
       </div>
       <div className="category-container">
         <Category
-          categories={lists[0]?.categories}
+          categories={list.categories}
           inputs={inputs}
           setInputs={setInputs}
-          lists={lists}
-          setLists={setLists}
-          descript={descript}
-          setDescript={setDescript}
-          contribute={contribute}
-          setContribute={setContribute}
+          lists={list}
+          setLists={setList}
           onCategoryRemove={onCategoryRemove}
           onCategoryAdd={onCategoryAdd}
-          onChangeTitle={onChangeTitle}
+          onChangeTitle={onChangeCategoryName}
           onChangeQuestion={onChangeQuestion}
           onQuestionAdd={onQuestionAdd}
           onQuestionRemove={onQuestionRemove}
-          onDescriptChange={onDescriptChange}
-          onContributeChange={onContributeChange}
         />
       </div>
+      <button onClick={onSubmitAssessment}>다음 단계</button>
     </div>
   );
 }

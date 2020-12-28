@@ -80,35 +80,46 @@
     border-bottom: 1px solid #a2a9b0;
 }
 
-.answer-input-wrapper {
+.answer-input-container {
     background-color: #f2f4f8;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid #4d5358;
     padding: 0 1rem;
 }
 
-.answer-input-wrapper > input {
+.answer-input-container > input {
     border:none;
     outline: none;
     background-color: #f2f4f8;
     height: 1.5rem;
 }
 
-.answer-input-container{
-    background-color: #f2f4f8;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.answer-input-container>label{
+.answer-input-container > label{
     color: #000000;
     font-size: 12px;
 }
 
-.answer-input-container>div{
+.answer-radio-wrapper{
     display: flex;
     width: 18rem;
     justify-content: space-between;
+}
+
+.answer-radio-wrapper > div {
+    display: flex;
+    align-items: center;
+}
+
+.answer-boolean {
+    justify-content: space-between;
+}
+
+.answer-boolean-input {
+    display: flex;
+    margin: 0 1rem;
+    justify-content: space-between;
+    align-items: center;
+    width: 7rem;
 }
