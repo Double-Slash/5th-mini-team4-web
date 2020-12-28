@@ -30,7 +30,15 @@ svg.personal_icon{
 
 .personal_contitle > div{
     font-size: 20px;
-    display: inline;
-    padding: 0 10% 0 20%;
+    display: inline-block;
+    width: 33%;
     background-color: #dde1e6;
+}
+
+.personal_open{
+    display: flex;
+}
+
+.personal_open{
+    display: none;
 }

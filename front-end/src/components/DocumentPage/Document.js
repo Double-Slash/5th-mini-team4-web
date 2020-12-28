@@ -3,7 +3,7 @@ import Personal from './Personal';
 const Document = () => {
   return (
     <>
-      <div className="">
+      <div>
         <Personal></Personal>
       </div>
     </>

@@ -1,6 +1,6 @@
 import React from "react";
 import "../../css/Personal.css";
-import Personal_Categories from "./Personal_Categories";
+import Personal_Category from "./Personal_Category";
 import { DocumentAdd32 } from "@carbon/icons-react";
 import { Search32 } from "@carbon/icons-react";
 import { Settings32 } from "@carbon/icons-react";
@@ -10,7 +10,7 @@ const Personal = () => {
       categories: [
         {
           id: 1,
-          category: "조사설계",
+          category: "2020 2학년 1학기 서베이방법론",
           questions: [
             {
               question: "개념화를 어떻게 했는가?",
@@ -86,16 +86,16 @@ const Personal = () => {
             <div>날짜</div>
           </div>
 
-          <div>
-            {data.map((data) =>
-              data.categories.map((categories) => (
-                <Personal_Categories
-                  category = {categories.category}
-                  questions = {categories.questions}
-                ></Personal_Categories>
-              ))
-            )}
-          </div>
+          {data.map((data) =>
+            data.categories.map((categories) => (
+              <div>
+                <Personal_Category
+                  category={categories.category}
+                  questions={categories.questions}
+                ></Personal_Category>
+              </div>
+            ))
+          )}
         </div>
       </div>
     </>

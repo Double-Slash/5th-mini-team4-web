@@ -1,0 +1,12 @@
+.Personal_Answer{
+    background-color: white;
+    padding: 5px;
+}
+
+.Personal_Answer_icon{
+    padding: 5px 30px 0px 100px;
+    display: inline-block;
+}
+.Personal_Answer_text{
+    padding-left: 55px;
+}
