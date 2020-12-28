@@ -4,69 +4,63 @@ import "./CreateAssessment.css";
 
 function CreateAssessment() {
   const [list, setList] = useState({
-      categories: [
-        {
-          category: "개발",
-          questions: [
-            {
-              question: {
-                title: "개발이 괜찮나?",
-                answers: [
-                  {
-                    type: "short",
-                    description: "짧은 응답",
-                  },
-                  {
-                    type: "number",
-                    description: "4",
-                  },
-                ],
-              },
+    categories: [
+      {
+        category: "개발",
+        questions: [
+          {
+            question: {
+              title: "개발이 괜찮나?",
+              answers: [
+                {
+                  type: "short",
+                },
+                {
+                  type: "number",
+                },
+              ],
             },
-          ],
-        },
-        {
-          category: "기획",
-          questions: [
-            {
-              question: {
-                title: "개발이 괜찮나?",
-                answers: [
-                  {
-                    type: "short",
-                    description: "짧은 응답",
-                  },
-                  {
-                    type: "number",
-                    description: "4",
-                  },
-                ],
-              },
+          },
+        ],
+      },
+      {
+        category: "기획",
+        questions: [
+          {
+            question: {
+              title: "개발이 괜찮나?",
+              answers: [
+                {
+                  type: "short",
+                },
+                {
+                  type: "number",
+                },
+              ],
             },
-          ],
-        },
-        {
-          category: "디자인",
-          questions: [
-            {
-              question: {
-                title: "개발이 괜찮나?",
-                answers: [
-                  {
-                    type: "short",
-                    description: "짧은 응답",
-                  },
-                  {
-                    type: "number",
-                    description: "4",
-                  },
-                ],
-              },
+          },
+        ],
+      },
+      {
+        category: "디자인",
+        questions: [
+          {
+            question: {
+              title: "개발이 괜찮나?",
+              answers: [
+                {
+                  type: "short",
+                },
+                {
+                  type: "number",
+                },
+              ],
             },
-          ],
-        },
-      ],
-    });
+          },
+        ],
+      },
+    ],
+  });
 
   const [inputs, setInputs] = useState({
     title: "",
@@ -82,7 +76,6 @@ function CreateAssessment() {
 
   // 카테고리 삭제
   const onCategoryRemove = (id) => {
-    
     list.forEach((category, index) => {
       category.categories = category.categories.filter((categ, i) => i !== id);
     });
@@ -91,13 +84,10 @@ function CreateAssessment() {
 
   // 카테고리 추가
   const onCategoryAdd = () => {
-    
-    list.forEach((list) => {
       list.categories = list.categories.concat({
         category,
         questions: [],
       });
-    });
     setList(list);
     setInputs({ category: "" });
   };
@@ -115,8 +105,7 @@ function CreateAssessment() {
 
   // 질문 추가
   const onQuestionAdd = (id) => {
-    
-    list[0].categories.forEach((category, index) => {
+    list.categories.forEach((category, index) => {
       if (index === id) {
         category.questions = category.questions.concat({
           question: {
@@ -131,7 +120,6 @@ function CreateAssessment() {
 
   // 질문 삭제
   const onQuestionRemove = (id, ind) => {
-    
     list[0].categories.forEach((category, index) => {
       if (index === id) {
         category.questions = category.questions.filter(
@@ -145,7 +133,7 @@ function CreateAssessment() {
   const onSubmitAssessment = () => {
     console.log({
       title: title,
-      lists: list
+      lists: list,
     });
   };
 
