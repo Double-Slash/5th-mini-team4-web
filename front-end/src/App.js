@@ -8,6 +8,7 @@ import Header from './pages/Header';
 import CreateAssessment from'./pages/EditAssess/CreateAssessment';
 import Main from './pages/Main/Main'
 import Login from './pages/Login/Login'
+import Join from './pages/Join/Join'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Navigation></Navigation>
       <Route path="/" exact={true} component={Home}></Route>
       <Route path='/login' exact={true} component={Login} />
+      <Route path='/join' exact={true} component={Join} />
       <Route path="/category" exact={true} component={Category}></Route>
       <Route path="/assessment" exact={true} component={Assessment}></Route>
       <Route path="/createassessment" exact={true} component={CreateAssessment} />
