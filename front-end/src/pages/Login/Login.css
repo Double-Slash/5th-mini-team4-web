@@ -1,15 +1,15 @@
-.loginBack {
+.Background {
   background-image: url('../../images/loginBack.svg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   width: 100%;
-  height: 1000px;
+  height: 1024px;
 }
 
-.container {
+.Container {
   position: relative;
-  left: 234px;
+  left: 200px;
   top:72px;
   width: 464px;
 }
@@ -23,18 +23,20 @@
   padding: 16px 17px;
   border-bottom: 2px solid #707070;
 }
+.passwordContatiner {
+  display: flex;
+  background-color: #f2f4f8;
+  border-bottom: 2px solid #707070;
+  align-items: center;
+  padding: 0 17px; 
+  margin-top: 16px;
+}
 .passwordInput{
-  background-image: url('../../images/view.svg');
-  background-position: right 16px center;
-  background-repeat: no-repeat;
-  background-size: 32px;
   background-color: #f2f4f8;
   border: none;
-  border-bottom: 2px solid #707070;
   outline: none;
   width: 100%;
   height: 64px;
-  padding: 16px 17px;
 }
 
 .loginInput::placeholder, .passwordInput::placeholder{
@@ -47,13 +49,17 @@
   padding: 16px;
   display: flex;
   justify-content: space-between;
+  margin-top: 16px;
+  cursor: pointer;
 }
 
 .googleButton{
   padding: 17px 20px;
   border: 2px solid #08bdba;
-   display: flex;
-   justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 14px;
+  cursor: pointer;
 }
 
 .signUpButton{
