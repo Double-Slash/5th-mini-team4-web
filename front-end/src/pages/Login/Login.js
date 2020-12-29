@@ -10,8 +10,20 @@ import viewOff from '../../images/viewOff.svg';
 import { View32, ViewOff32, ArrowRight32, Information32 } from "@carbon/icons-react";
 
 function Login() {
+  const [inputs, setInputs] = useState({
+    userId: '',
+    password: ''
+  })
   const [remember, setRemember] = useState(false);
   const [viewOn, setViewOn ] = useState(false);
+
+  const onChange = (e) => {
+    const { value, name } = e.target
+    setInputs({
+      ...inputs,
+      [name] : value
+    })
+  }
 
   const onRemember = () => {
     setRemember(!remember);
@@ -41,12 +53,18 @@ function Login() {
 
         <div style={{ display: 'flex', flexDirection: 'column'}}>
           <input 
+            name="userId"
+            onChange={onChange}
+            value={inputs.userId}
             className='loginInput'
             placeholder='userEmail@Email.com'/>
                     
           <div className='passwordContatiner'>
             <input 
-              type='password'
+              type={viewOn ? 'text' : 'password'}
+              name="password"
+              onChange={onChange}
+              value={inputs.password}
               className='passwordInput'
               placeholder='Password'/>
             <img onClick={onViewOn} src={viewOn ? view : viewOff} style={{ width: 32, height: 32}} alt="remember"/>
@@ -54,7 +72,7 @@ function Login() {
 
           <div className='loginButton'>
             <div style={{ fontSize: 20, color: 'white'}}>Continue</div>
-            <ArrowRight32 />
+            <ArrowRight32 style={{ color: '#ffffff'}}/>
           </div>
         </div>
         
@@ -63,7 +81,7 @@ function Login() {
           
           <div style={{ fontSize: 16, marginLeft: 8, marginRight: 20 }}>Remeber ID</div>
           
-          <Information32 />
+          <Information32 style={{ color: '#dde1e6'}}/>
         </div>
 
         <div style={{ border:'1px solid #f2f4f8', marginTop: 42 }} />
