@@ -125,3 +125,17 @@
     align-items: center;
     width: 7rem;
 }
+
+.unchecked{
+    color: #c1c7cd;
+    pointer-events: none;
+    border-bottom: 1px solid #f2f4f8;
+}
+
+.unchecked>input::placeholder{
+    color:#dde1e6;
+}
+
+.unchecked>label{
+    color: #c1c7cd;
+}
