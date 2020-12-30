@@ -53,15 +53,13 @@ const QuestionList = ({ onQuestionRemove, questions, index }) => {
                   {isQuality ? <CheckboxCheckedFilled32 /> : <Checkbox32 />}
                 </div>
 
-                <div className={" " + (isQuality ? "" : "unchecked")}>
+                <div className={isQuality ? "" : "unchecked"}>
                   <div className="answer-small-category-wrapper">
                     <div
-                      className={
-                        "answer-small-category " +
-                        (isQuality ? "" : "unchecked")
-                      }
+                      className={`answer-small-category ${isQuality ? "" : " unchecked"}`}
                       onClick={() => setQualitySmallCategory("short")}
                     >
+
                       <label>단문</label>
                       {qualitySmallCategory === "short" ? (
                         <RadioButtonChecked32 />
@@ -70,20 +68,14 @@ const QuestionList = ({ onQuestionRemove, questions, index }) => {
                       )}
                     </div>
                     <div
-                      className={
-                        "answer-input-container " +
-                        (isQuality ? "" : "unchecked")
-                      }
+                      className={`answer-input-container ${isQuality ? "" : "unchecked"}`}
                     >
                       <input type="text" placeholder="원하는 말을 적어주세요" />
                     </div>
                   </div>
                   <div className="answer-small-category-wrapper">
                     <div
-                      className={
-                        "answer-small-category " +
-                        (isQuality ? "" : "unchecked")
-                      }
+                      className={`answer-small-category ${isQuality ? "" : "unchecked"}`}
                       onClick={() => setQualitySmallCategory("long")}
                     >
                       <label>장문</label>
@@ -94,11 +86,7 @@ const QuestionList = ({ onQuestionRemove, questions, index }) => {
                       )}
                     </div>
                     <div
-                      className={
-                        "answer-input-container " +
-                        (isQuality ? "" : "unchecked")
-                      }
-                    >
+                      className={`answer-input-container ${isQuality ? "" : "unchecked"}`}>
                       <input type="text" placeholder="원하는 말을 적어주세요" />
                     </div>
                   </div>
@@ -113,12 +101,10 @@ const QuestionList = ({ onQuestionRemove, questions, index }) => {
                   {isAmount ? <CheckboxCheckedFilled32 /> : <Checkbox32 />}
                 </div>
 
-                <div className={" " + (isAmount ? "" : "unchecked")}>
+                <div className={`${isAmount ? "" : "unchecked"}`}>
                   <div className="answer-small-category-wrapper">
                     <div
-                      className={
-                        "answer-small-category " + (isAmount ? "" : "unchecked")
-                      }
+                      className={`answer-small-category ${isAmount ? "" : "unchecked"}`}
                       onClick={() => setQuantitySmallCategory("number")}
                     >
                       <label>숫자 입력</label>
@@ -129,10 +115,7 @@ const QuestionList = ({ onQuestionRemove, questions, index }) => {
                       )}
                     </div>
                     <div
-                      className={
-                        "answer-input-container " +
-                        (isAmount ? "" : "unchecked")
-                      }
+                      className={`answer-input-container ${isAmount ? "" : "unchecked"}`}
                     >
                       <input type="text" placeholder="숫자를 적어주세요" />
                     </div>
@@ -140,9 +123,7 @@ const QuestionList = ({ onQuestionRemove, questions, index }) => {
 
                   <div className="answer-small-category-wrapper">
                     <div
-                      className={
-                        "answer-small-category " + (isAmount ? "" : "unchecked")
-                      }
+                      className={`answer-small-category ${isAmount ? "" : "unchecked"}`}
                       onClick={() => setQuantitySmallCategory("score")}
                     >
                       <label>5점 질문</label>
@@ -153,10 +134,7 @@ const QuestionList = ({ onQuestionRemove, questions, index }) => {
                       )}
                     </div>
                     <div
-                      className={
-                        "answer-input-container " +
-                        (isAmount ? "" : "unchecked")
-                      }
+                      className={`answer-input-container ${isAmount ? "" : "unchecked"}`}
                     >
                       <label>매우 아니다</label>
                       <div className="answer-radio-wrapper">
@@ -181,9 +159,7 @@ const QuestionList = ({ onQuestionRemove, questions, index }) => {
                   </div>
                   <div className="answer-small-category-wrapper">
                     <div
-                      className={
-                        "answer-small-category " + (isAmount ? "" : "unchecked")
-                      }
+                      className={`answer-small-category ${isAmount ? "" : "unchecked"}`}
                       onClick={() => setQuantitySmallCategory("yesOrNo")}
                     >
                       <label>예/아니오</label>
@@ -194,10 +170,7 @@ const QuestionList = ({ onQuestionRemove, questions, index }) => {
                       )}
                     </div>
                     <div
-                      className={
-                        "answer-input-container answer-boolean " +
-                        (isAmount ? "" : "unchecked")
-                      }
+                      className={`answer-input-container answer-boolean ${isAmount ? "" : "unchecked"}`}
                     >
                       <div className="answer-boolean-input">
                         예
