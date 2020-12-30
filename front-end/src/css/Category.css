@@ -1,6 +1,6 @@
 .category-container {
   width: 100%;
-  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .category-wrapper {
@@ -10,6 +10,7 @@
   height: 48px;
   background-color: #a2a9b0;
   padding: 0 1rem;
+  margin-top: 1.5rem;
 }
 
 .category-label{

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Category from "../../components/Category/Category";
 import "./CreateAssessment.css";
+import { SendAltFilled16, View16 } from "@carbon/icons-react";
 
 function CreateAssessment() {
   const [list, setList] = useState({
@@ -84,10 +85,10 @@ function CreateAssessment() {
 
   // 카테고리 추가
   const onCategoryAdd = () => {
-      list.categories = list.categories.concat({
-        category,
-        questions: [],
-      });
+    list.categories = list.categories.concat({
+      category,
+      questions: [],
+    });
     setList(list);
     setInputs({ category: "" });
   };
@@ -161,8 +162,20 @@ function CreateAssessment() {
           onQuestionAdd={onQuestionAdd}
           onQuestionRemove={onQuestionRemove}
         />
+
       </div>
-      <button onClick={onSubmitAssessment}>다음 단계</button>
+
+
+      <div className="button-container">
+        <div className="show-button-wrapper">
+          <button onClick={onSubmitAssessment}>미리보기</button>
+          <View16 />
+        </div>
+        <div className="next-button-wrapper">
+          <button onClick={onSubmitAssessment}>다음 단계</button>
+          <SendAltFilled16 />
+        </div>
+      </div>
     </div>
   );
 }
