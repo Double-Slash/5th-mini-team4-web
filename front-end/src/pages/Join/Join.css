@@ -1,10 +1,10 @@
 .joinBack{
-    background-image: url('../../images/loginBack.svg');
+    background-image: url('../../images/signupBack.svg');
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    /* background-position: center; */
     width: 100%;
-    height: 1000px;
+    height: 1024px;
 }
 
 .join-wrapper{
@@ -13,54 +13,25 @@
     align-items: center;
 }
 
-.container{
+.joinContainer{
     position: relative;
-    left: 234px;
-    top: 72px;
+    left: 145px;
+    top: 15px;
     width: 464px;
 }
 
-.idInput{
+.joinInput {
     background-color: #f2f4f8;
     border: none;
     outline: none;
     width: 100%;
     height: 64px;
     padding: 16px 17px;
+    margin-top: 10px;
     border-bottom: 2px solid #707070;
 }
 
-.passwordInput{
-    background-color: #f2f4f8;
-    border: none;
-    border-bottom: 2px solid #707070;
-    outline: none;
-    width: 100%;
-    height: 64px;
-    padding: 16px 17px;
-}
-
-.passwordCheckInput{
-    background-color: #f2f4f8;
-    border: none;
-    border-bottom: 2px solid #707070;
-    outline: none;
-    width: 100%;
-    height: 64px;
-    padding: 16px 17px;
-}
-
-.nameInput{
-    background-color: #f2f4f8;
-    border: none;
-    outline: none;
-    width: 100%;
-    height: 64px;
-    padding: 16px 17px;
-    border-bottom: 2px solid #707070;
-}
-
-.idInput::placeholder, .passwordInput::placeholder, .passwordCheckInput::placeholder, .nameInput::placeholder{
+.joinInput::placeholder{
     font-size: 20px;
     color: #c1c7cd;
 }
@@ -70,4 +41,6 @@
     padding: 16px;
     display: flex;
     justify-content: space-between;
+    margin-top: 32px;
+    cursor: pointer;
 }
