@@ -31,7 +31,7 @@
   padding: 0 17px; 
   margin-top: 16px;
 }
-.passwordInput{
+.pwInput{
   background-color: #f2f4f8;
   border: none;
   outline: none;
@@ -39,7 +39,7 @@
   height: 64px;
 }
 
-.loginInput::placeholder, .passwordInput::placeholder{
+.loginInput::placeholder, .pwInput::placeholder{
   font-size: 20px;
   color: #c1c7cd;
 }

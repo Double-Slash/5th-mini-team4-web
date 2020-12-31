@@ -7,11 +7,11 @@ import google from '../../images/google.svg';
 import view from '../../images/view.svg';
 import viewOff from '../../images/viewOff.svg';
 
-import { View32, ViewOff32, ArrowRight32, Information32 } from "@carbon/icons-react";
+import { ArrowRight32, Information32 } from "@carbon/icons-react";
 
-function Login() {
+function Login({ history }) {
   const [inputs, setInputs] = useState({
-    userId: '',
+    userId: localStorage.getItem('userId'),
     password: ''
   })
   const [remember, setRemember] = useState(false);
@@ -33,7 +33,12 @@ function Login() {
     setViewOn(!viewOn);
   }
 
+  const onClickJoin = () => {
+    history.push('/join');
+  }
+
   return (
+    console.log(localStorage.getItem('userId')),
     <div className='Background'>
       <div className='Container'>
         
@@ -41,7 +46,9 @@ function Login() {
         
         <div style={{ display: 'flex'}}>
           <div>Don't have an account?</div>
-          <div className='signUpButton'>Create an Assessment id</div>
+          <div
+            onClick={onClickJoin} 
+            className='signUpButton'>Create an Assessment id</div>
         </div>
        
         <div style={{ border:'1px solid #dde1e6', marginTop: 49}} />
@@ -65,7 +72,7 @@ function Login() {
               name="password"
               onChange={onChange}
               value={inputs.password}
-              className='passwordInput'
+              className='pwInput'
               placeholder='Password'/>
             <img onClick={onViewOn} src={viewOn ? view : viewOff} style={{ width: 32, height: 32}} alt="remember"/>
           </div>
