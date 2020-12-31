@@ -86,7 +86,7 @@ function Login({ history }) {
         <div style={{ display: 'flex', alignItems: 'center', marginTop: 24 }}>
           <img onClick={onRemember} src={remember ? checked : checkbox} style={{ width: 32, height: 32}} alt="remember"/>
           
-          <div style={{ fontSize: 16, marginLeft: 8, marginRight: 20 }}>Remeber ID</div>
+          <div style={{ fontSize: 16, marginLeft: 8, marginRight: 20 }}>Remember ID</div>
           
           <Information32 style={{ color: '#dde1e6'}}/>
         </div>
