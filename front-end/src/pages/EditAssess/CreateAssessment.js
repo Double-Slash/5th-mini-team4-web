@@ -176,14 +176,7 @@ function CreateAssessment(){
                       display: 'flex', 
                       justifyContent: 'space-between',
                       padding: '0 32px 0 32px'}}>
-                      {/* <li id="exversions">      이전 버전
-                          <ul id="submenu">
-                              <li><a href="#" id="index1">2020.10.1</a></li>
-                              <li><a href="#" id="index2">2020.10.2</a></li>
-                              <li><a href="#" id="index3">2020.10.3</a></li>
-                              <li><a href="#" id="index4">2020.10.4</a></li>
-                          </ul>
-                      </li> */}
+
                       <div style={{ display: 'flex', 
                           justifyContent: 'space-between',
                           alignItems: 'center',

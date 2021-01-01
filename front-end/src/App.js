@@ -7,7 +7,9 @@ import Navigation from './pages/Navigation';
 import Header from './pages/Header';
 import CreateAssessment from'./pages/EditAssess/CreateAssessment';
 import Main from './pages/Main/Main'
-import Document from './components/DocumentPage/Document'
+import Login from './pages/Login/Login'
+import Join from './pages/Join/Join'
+
 function App() {
   return (
     <>
@@ -16,10 +18,11 @@ function App() {
       {/* Navigation은 개발 완료시 삭제예정 개발시 페이지 참고용 */}
       <Navigation></Navigation>
       <Route path="/" exact={true} component={Home}></Route>
+      <Route path='/login' exact={true} component={Login} />
+      <Route path='/join' exact={true} component={Join} />
       <Route path="/category" exact={true} component={Category}></Route>
       <Route path="/assessment" exact={true} component={Assessment}></Route>
       <Route path="/createassessment" exact={true} component={CreateAssessment} />
-      <Route path="/document" exact={true} component={Document} />
       <Route path="/main" exact={true} component={Main} />
     </HashRouter>
     </>
