@@ -1,0 +1,9 @@
+.Document_container{
+   
+    padding: 10px;
+    margin: 10px;
+}
+.Document_personal{
+    width: 50%;
+    float: left;    
+}

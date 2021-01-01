@@ -7,7 +7,7 @@ const Personal_Question = ({ question, answer }) => {
   const [accordion, setAccordion] = useState(true);
   return (
     <>
-      <div>
+      <div className="Personal_Question">
         <div>
           <div onClick={() => setAccordion(!accordion)}>
             <div className="Personal_Question_icon Personal_Question_div">

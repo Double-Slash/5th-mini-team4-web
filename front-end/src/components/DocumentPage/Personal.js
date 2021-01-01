@@ -4,6 +4,7 @@ import Personal_Category from "./Personal_Category";
 import { DocumentAdd32 } from "@carbon/icons-react";
 import { Search32 } from "@carbon/icons-react";
 import { Settings32 } from "@carbon/icons-react";
+import { Link } from "react-router-dom";
 const Personal = () => {
   const data = [
     {
@@ -70,9 +71,13 @@ const Personal = () => {
         <h3 className="personal_subtitle">개인적으로 주고받는 설문</h3>
 
         <div className="personal_component1">
-          <button className="personal_make">
-            <div className="personal_make_text">만들기</div> <DocumentAdd32 />
-          </button>
+          <Link to="/createassessment">
+            <button className="personal_make">
+              <div className="personal_make_text">
+                만들기 <DocumentAdd32 />
+              </div>
+            </button>
+          </Link>
           <div className="personal_component1_icon">
             <Search32 className="personal_icon" />
             <Settings32 className="personal_icon" />

@@ -6,5 +6,7 @@
 .Personal_Category_div{
     display: inline-block;
     text-align: center;
-    
+}
+.Personal_Question{
+    background-color: rgb(202, 200, 200);
 }
