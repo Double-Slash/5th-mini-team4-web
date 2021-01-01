@@ -36,7 +36,7 @@ const QuestionList = ({ onQuestionRemove, questions, index }) => {
                 </div>
                 <div
                   className="question-button"
-                  onClick={() => onQuestionRemove}
+                  onClick={() => onQuestionRemove(index, i)}
                 >
                   <Close32 />
                 </div>

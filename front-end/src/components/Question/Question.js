@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "../../css/Question.css";
 import { Add32 } from "@carbon/icons-react";
@@ -9,9 +9,11 @@ function Question({
   index,
   onQuestionAdd,
   onQuestionRemove,
-  onChangeQuestion,
-  question,
 }) {
+  const [question, setQuestion] = useState("");
+  const onChangeQuestion = (e) => {
+    setQuestion(e.target.value);
+  };
   return (
     <div>
       <QuestionList
@@ -32,7 +34,10 @@ function Question({
         </div>
         <div
           className="question-add-button"
-          onClick={() => onQuestionAdd(index)}
+          onClick={() => {
+            onQuestionAdd(index, question);
+            setQuestion("");
+          }}
         >
           <Add32 />
         </div>

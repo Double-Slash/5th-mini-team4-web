@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Category from "../../components/Category/Category";
 import "./CreateAssessment.css";
 import { SendAltFilled16, View16 } from "@carbon/icons-react";
@@ -78,8 +78,7 @@ function CreateAssessment() {
   // 카테고리 삭제
   const onCategoryRemove = (id) => {
     const categories = list.categories.filter((category, i) => i !== id);
-    setList({categories});
-    console.log(list);
+    setList({ categories });
   };
 
   // 카테고리 추가
@@ -100,11 +99,10 @@ function CreateAssessment() {
   // 질문 input 변경
   const onChangeQuestion = (e) => {
     setInputs({ question: e.target.value });
-    console.log(question);
   };
 
   // 질문 추가
-  const onQuestionAdd = (id) => {
+  const onQuestionAdd = (id, question) => {
     list.categories.forEach((category, index) => {
       if (index === id) {
         category.questions = category.questions.concat({
@@ -115,7 +113,7 @@ function CreateAssessment() {
       }
     });
     setList(list);
-    setInputs({ question: "" });
+    setInputs({question: ""})
   };
 
   // 질문 삭제
@@ -128,6 +126,7 @@ function CreateAssessment() {
       }
     });
     setList(list);
+    setInputs({ question: "" });
   };
 
   const onSubmitAssessment = () => {
@@ -149,11 +148,9 @@ function CreateAssessment() {
       </div>
       <div className="category-container">
         <Category
-          categories={list.categories}
           inputs={inputs}
           setInputs={setInputs}
           lists={list}
-          setLists={setList}
           onCategoryRemove={onCategoryRemove}
           onCategoryAdd={onCategoryAdd}
           onChangeTitle={onChangeCategoryName}

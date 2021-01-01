@@ -5,7 +5,7 @@ import CategoryInput from "./CategoryInput";
 import CategoryList from "./CategoryList";
 
 function Category({
-  categories,
+  lists,
   inputs,
   setInputs,
   onCategoryRemove,
@@ -17,9 +17,10 @@ function Category({
   onDescriptChange,
   onContributeChange,
 }) {
+  console.log(lists);
   return (
     <>
-      {categories?.map((list, index) => {
+      {lists.categories?.map((list, index) => {
         return (
           <CategoryList
             key={index}
