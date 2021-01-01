@@ -1,261 +1,177 @@
-import React, { useState } from 'react';
-import './CreateAssessment.css';
-import Category from '../../components/Category/Category'
-import { Link } from 'react-router-dom';
-// images
-import send from '../../images/send.svg'
-import chevrondown from '../../images/chevrondown.svg'
-import chevronup from '../../images/chevronup.svg'
+import React, { useState, useEffect } from "react";
+import Category from "../../components/Category/Category";
+import "./CreateAssessment.css";
+import { SendAltFilled16, View16 } from "@carbon/icons-react";
 
-function CreateAssessment(){
-    const [ assessment, setAssessment ] = useState([]);
-    const [ active, setActive ] = useState(false);
-    const [ lists, setLists] = useState([
+function CreateAssessment() {
+  const [list, setList] = useState({
+    categories: [
       {
-        assessment: '테스트 에세스먼트',
-        categories:[
+        category: "개발",
+        questions: [
           {
-            category: '개발',
-            questions:[
-              {
-                question: '개발이 괜찮나?',
-                description: false,
-                contribution: true
-              },
-              {
-                question: '개발이 괜찮나?',
-                description: false,
-                contribution: true
-              },
-              {
-                question: '개발이 괜찮나?',
-                description: false,
-                contribution: true
-              },
-            ]
+            question: {
+              title: "개발이 괜찮나?",
+              answers: [
+                {
+                  type: "short",
+                },
+                {
+                  type: "number",
+                },
+              ],
+            },
           },
+        ],
+      },
+      {
+        category: "기획",
+        questions: [
           {
-            category: '기획',
-            questions:[
-              {
-                question: '기획이 괜찮나?',
-                description: true,
-                contribution: true
-              },
-              {
-                question: '기획이 괜찮나?',
-                description: true,
-                contribution: true
-              },
-              {
-                question: '기획이 괜찮나?',
-                description: true,
-                contribution: true
-              },
-            ]
+            question: {
+              title: "개발이 괜찮나?",
+              answers: [
+                {
+                  type: "short",
+                },
+                {
+                  type: "number",
+                },
+              ],
+            },
           },
+        ],
+      },
+      {
+        category: "디자인",
+        questions: [
           {
-            category: '디자인',
-            questions:[
-              {
-                question: '디자인이 괜찮나?',
-                description: true,
-                contribution: false
-              },
-              {
-                question: '디자인이 괜찮나?',
-                description: true,
-                contribution: false
-              },
-              {
-                question: '디자인이 괜찮나?',
-                description: true,
-                contribution: false
-              },
-            ]
-          }
-        ]
+            question: {
+              title: "개발이 괜찮나?",
+              answers: [
+                {
+                  type: "short",
+                },
+                {
+                  type: "number",
+                },
+              ],
+            },
+          },
+        ],
+      },
+    ],
+  });
+
+  const [inputs, setInputs] = useState({
+    title: "",
+    category: "",
+    question: "",
+  });
+
+  const { title, category, question } = inputs;
+
+  const onChangeTitle = (e) => {
+    setInputs({ title: e.target.value });
+  };
+
+  // 카테고리 삭제
+  const onCategoryRemove = (id) => {
+    const categories = list.categories.filter((category, i) => i !== id);
+    setList({ categories });
+  };
+
+  // 카테고리 추가
+  const onCategoryAdd = () => {
+    list.categories = list.categories.concat({
+      category,
+      questions: [],
+    });
+    setList(list);
+    setInputs({ category: "" });
+  };
+
+  // 카테고리 input 변경
+  const onChangeCategoryName = (e) => {
+    setInputs({ category: e.target.value });
+  };
+
+  // 질문 input 변경
+  const onChangeQuestion = (e) => {
+    setInputs({ question: e.target.value });
+  };
+
+  // 질문 추가
+  const onQuestionAdd = (id, question) => {
+    list.categories.forEach((category, index) => {
+      if (index === id) {
+        category.questions = category.questions.concat({
+          question: {
+            title: question,
+          },
+        });
       }
-    ])
+    });
+    setList(list);
+    setInputs({question: ""})
+  };
 
-    const onActiveClick = () => {
-      setActive(!active);
-    }
+  // 질문 삭제
+  const onQuestionRemove = (id, ind) => {
+    list.categories.forEach((category, index) => {
+      if (index === id) {
+        category.questions = category.questions.filter(
+          (question, i) => i !== ind
+        );
+      }
+    });
+    setList(list);
+    setInputs({ question: "" });
+  };
 
-    const [inputs, setInputs] = useState({
-      category: '',
-      question: ''
-    })
-    const [descript, setDescript]=useState(false);
-    const [contribute, setContribute]=useState(false);
-    const { category, question } = inputs
-    //const [lists, setLists] = useState(categories)
-  
-    // 카테고리 삭제 
-    const onCategoryRemove = (id) => {
-      const newList = lists.slice(0);
-      newList.forEach((category,index) => {
-        category.categories = category.categories.filter((categ, i) => i !== id)
-      });
-      setLists(newList);
-    }
-  
-    // 카테고리 추가
-    const onCategoryAdd = () => {
-      const newList = lists.slice(0);
-      newList.forEach((list) =>{
-        list.categories =
-          list.categories.concat({
-            category,
-            questions: []
-          })
-      })
-      setLists(newList);
-      setInputs({ category: '' });
-    }
-    
-    // 카테고리 input 변경
-    const onChangeTitle = (e) => {
-      setInputs({ category: e.target.value });
-    }
-  
-    // 질문 input 변경
-    const onChangeQuestion = (e) => {
-      setInputs({ question: e.target.value });
-    }
-  
-    // 질문 추가
-    const onQuestionAdd = (id) =>{
-      const newList = lists.slice(0);
-      newList[0].categories.forEach((category, index) => {
-        console.log('test',category)
-        if( index === id){
-          category.questions = 
-            category.questions.concat({
-              question,
-              description: descript,
-              contribution: contribute
-            })
-        }
-      })
-      setLists(newList);
-      setDescript(false);
-      setContribute(false);
-      setInputs({ question: '' });
-    }
-  
-    // 질문 삭제
-    const onQuestionRemove = (id, ind) => {
-      const newList = lists.slice(0);
-      newList[0].categories.forEach((category,index) => {
-        if(index === id) {
-          category.questions = category.questions.filter((question, i) => i !== ind)
-        }
-      });
-      setLists(newList);
-    }
-  
-    // 서술형 체크
-    const onDescriptChange = (e) => {
-      setDescript(!descript)
-    }
-    
-    // 점수형 체크
-    const onContributeChange = (e) =>{
-      setContribute(!contribute)
-    }
+  const onSubmitAssessment = () => {
+    console.log({
+      title: title,
+      lists: list,
+    });
+  };
 
-    return (
-      console.log(lists),
-            <>
-                <div>
-                  <div className="header">
-                    <div className="title">{lists[0]?.assessment}</div>
-                    
-                    <div style={{ 
-                      display: 'flex', 
-                      justifyContent: 'space-between',
-                      padding: '0 32px 0 32px'}}>
+  return (
+    <div className="assessment-create-container">
+      <div className="title-wrapper">
+        <input
+          type="text"
+          onChange={onChangeTitle}
+          placeholder="평가 제목을 입력해주세요."
+          className="title"
+        />
+      </div>
+      <div className="category-container">
+        <Category
+          inputs={inputs}
+          setInputs={setInputs}
+          lists={list}
+          onCategoryRemove={onCategoryRemove}
+          onCategoryAdd={onCategoryAdd}
+          onChangeTitle={onChangeCategoryName}
+          onChangeQuestion={onChangeQuestion}
+          onQuestionAdd={onQuestionAdd}
+          onQuestionRemove={onQuestionRemove}
+        />
+      </div>
 
-                      <div style={{ display: 'flex', 
-                          justifyContent: 'space-between',
-                          alignItems: 'center',
-                          backgroundColor: '#009D9A',
-                          padding: '0 16px 0 16px',
-                          width: 232,
-                          height: 48,
-                          cursor:'pointer' }}
-                          onClick={onActiveClick}>
-                        <div>이전 버전</div>
-                        <img style={{ width: 32, height: 32}} alt='accordion' src={ active ? chevronup : chevrondown} />
-                      </div>
-                      <Link to="/main">
-                      <div style={{ 
-                          display: 'flex', 
-                          justifyContent: 'space-between', 
-                          alignItems: 'center', 
-                          padding: '0 8px 0 16px',
-                          backgroundColor: '#009D9A',
-                          color:'white',
-                          width: 232,
-                          height: 48,
-                          cursor: 'pointer'}}>
-                          <div>보내기</div>
-                        <img style={{ width: 32, height: 32}} alt='send' src={send} />
-                      </div>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-                <div style={{ padding: '0 0 0 32px', position: 'absolute'}}>
-                  {
-                    active ? 
-                      <>
-                        <PrevAssessment />
-                        <div  style={{ borderBottom: 'solid', borderColor: '#707070'}}/>
-                      </>
-                      : null
-                  }
-                </div>
-                <div style={{ display: 'flex', justifyContent: 'center'}}>
-                  <div style={{ padding:'0 264px 0 264px', marginTop: 64, flex: 1 }}>
-                    <Category 
-                      categories={lists[0]?.categories} 
-                      inputs={inputs}
-                      setInputs={setInputs}
-                      lists={lists}
-                      setLists={setLists}
-                      descript={descript}
-                      setDescript={setDescript}
-                      contribute={contribute}
-                      setContribute={setContribute}
-                      onCategoryRemove={onCategoryRemove}
-                      onCategoryAdd={onCategoryAdd}
-                      onChangeTitle={onChangeTitle}
-                      onChangeQuestion={onChangeQuestion}
-                      onQuestionAdd={onQuestionAdd}
-                      onQuestionRemove={onQuestionRemove}
-                      onDescriptChange={onDescriptChange}
-                      onContributeChange={onContributeChange}
-                    />
-                  </div>
-                </div>
-            </>
-    )
-}
-
-function PrevAssessment() {
-  return(
-    <div style={{ 
-        display: 'flex', 
-        justifyContent: 'space-between',
-        width: 232,
-        height: 48,
-        padding: '11px 8px 13px 16px' }}>
-      <div>2018.04.12</div>
-      <div>004</div>
+      <div className="button-container">
+        <div className="show-button-wrapper">
+          <button onClick={onSubmitAssessment}>미리보기</button>
+          <View16 />
+        </div>
+        <div className="next-button-wrapper">
+          <button onClick={onSubmitAssessment}>다음 단계</button>
+          <SendAltFilled16 />
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
 export default CreateAssessment;

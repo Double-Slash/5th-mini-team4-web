@@ -4,102 +4,166 @@
    font-family: 'Noto Sans KR', sans-serif;
 }
 
-.header{
-   background-color: #081A1C;
-   /* height: 20%; */
-   /* float: right; */
+/*.header{*/
+/*   background-color: #081A1C;*/
+/*   !* height: 20%; *!*/
+/*   !* float: right; *!*/
+/*   width: 100%;*/
+/*}*/
+
+.assessment-create-container {
+   width:100%;
+   height:100%;
+   /*height:100rem;*/
+   padding: 4.5rem 18rem;
+}
+
+.title-wrapper{
    width: 100%;
+   height: 6rem;
+   background-color: #f2f4f8;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-bottom: 3rem;
+   border-bottom: 2px solid #4d5358;
 }
 
-.title{
+.title-wrapper > input {
+   border:none;
+   outline: none;
+   background-color: #f2f4f8;
+}
+
+.title {
+   font-size: 3.5rem;
+   font-weight: bold;
+   font-stretch: normal;
+   font-style: normal;
+   line-height: 1.07;
+   letter-spacing: normal;
    text-align: center;
- color:white;
- font-size: 54px;
- font-weight: bold;
- padding: 24px;
- /* width: 100%; */
- /* padding: 10px; */
+   color: #000000;
 }
 
+/*#exversions{*/
+/*   background: darkcyan;*/
+/*   font-size: 13px;*/
+/*   width:232px;*/
+/*   height: 48px;*/
+/*   color: white;*/
+/*   float: left;*/
+/*   text-align: left;*/
+/*   padding-top: 12px;*/
+/*   display:inline-block;*/
+/*}*/
 
-#exversions{
-   background: darkcyan;
-   font-size: 13px;
-   width:232px;
-   height: 48px;
-   color: white;
-   float: left;
-   text-align: left;
-   padding-top: 12px;
-   display:inline-block;
+
+/*.send{*/
+/*   background: darkcyan;*/
+/*   width:200px;*/
+/*   height: 35px;*/
+/*   color: white;*/
+/*   float:right;*/
+/*   text-align: left;*/
+/*   margin-top: 11px;*/
+/*}*/
+
+/*#submenu{*/
+/*   text-align: left;*/
+/*   margin-top: 10px;*/
+/*   width: 202px;*/
+/*   height: 35px;*/
+/*   background: white;*/
+/*   position: absolute;*/
+/*   padding: 0;*/
+/*   list-style-type: none;*/
+/*   opacity: 1;*/
+/*   visibility: hidden;*/
+/*}*/
+
+/*li{*/
+/*   height: 30px;*/
+/*   margin-top: 10px;*/
+/*   padding-left:-5px;*/
+/*}*/
+
+
+/*#submenu ul li{*/
+/*   background-color: whitesmoke;*/
+/*   border: 1px solid gray;*/
+/*   width: 200px;*/
+/*   height: 1000px;*/
+/*   line-height: 400px;*/
+/*   float: left;*/
+/*   text-align: center;*/
+/*   text-decoration: none;*/
+/*}*/
+
+/*a{*/
+/*   font-size: 13px;*/
+/*   text-decoration: none;*/
+/*   color: gray;*/
+/*   padding-left: 10px;*/
+/*}*/
+
+/*#submenu ul li a{*/
+/*   text-decoration: none;*/
+/*   color:darkgray;*/
+/*   display: block;*/
+/*}*/
+
+/*li:hover #submenu{*/
+/*   opacity: 1;*/
+/*   visibility: visible;*/
+/*   background-color: white;*/
+/*}*/
+
+/*#submenu ul li a:hover{*/
+/*   color: white;*/
+/*   background-color: darkcyan;*/
+/*} !* 적용 x *!*/
+
+/*.content{*/
+/* background: whitesmoke;*/
+/*}*/
+
+
+
+.button-container{
+   display: flex;
+   justify-content: flex-end;
+   height: 3rem;
 }
 
-
-.send{
-   background: darkcyan;
-   width:200px;
-   height: 35px;
-   color: white;
-   float:right;
-   text-align: left;
-   margin-top: 11px;
+.next-button-wrapper{
+   width: 14rem;
+   background-color: #08bdba;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 0.3rem 1rem;
+}
+.next-button-wrapper > *{
+   border: none;
+   outline: none;
+   background-color: #08bdba;
+   font-size: 1.5rem;
+   color:white;
 }
 
-#submenu{
-   text-align: left;
-   margin-top: 10px;
-   width: 202px;
-   height: 35px;
-   background: white;
-   position: absolute;
-   padding: 0;
-   list-style-type: none;
-   opacity: 1;
-   visibility: hidden;
+.show-button-wrapper{
+   width: 14rem;
+   background-color: #343a3f;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 0.3rem 1rem;
 }
-
-li{
-   height: 30px;
-   margin-top: 10px;
-   padding-left:-5px;
-}
-
-
-#submenu ul li{
-   background-color: whitesmoke;
-   border: 1px solid gray;
-   width: 200px;
-   height: 1000px;
-   line-height: 400px;
-   float: left;
-   text-align: center;
-   text-decoration: none;
-}
-
-a{
-   font-size: 13px;
-   text-decoration: none;
-   color: gray;
-   padding-left: 10px;
-}
-
-#submenu ul li a{
-   text-decoration: none;
-   color:darkgray;
-   display: block;
-}
-
-li:hover #submenu{
-   opacity: 1;
-   visibility: visible;
-   background-color: white;
-}
-
-#submenu ul li a:hover{
-   color: white;
-   background-color: darkcyan;
-} /* 적용 x */
-
-.content{
- background: whitesmoke;
+.show-button-wrapper > *{
+   border: none;
+   outline: none;
+   background-color: #343a3f;
+   font-size: 1.5rem;
+   color:white;
 }
