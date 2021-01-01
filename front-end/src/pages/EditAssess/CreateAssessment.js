@@ -77,10 +77,9 @@ function CreateAssessment() {
 
   // 카테고리 삭제
   const onCategoryRemove = (id) => {
-    list.forEach((category, index) => {
-      category.categories = category.categories.filter((categ, i) => i !== id);
-    });
-    setList(list);
+    const categories = list.categories.filter((category, i) => i !== id);
+    setList({categories});
+    console.log(list);
   };
 
   // 카테고리 추가
@@ -121,7 +120,7 @@ function CreateAssessment() {
 
   // 질문 삭제
   const onQuestionRemove = (id, ind) => {
-    list[0].categories.forEach((category, index) => {
+    list.categories.forEach((category, index) => {
       if (index === id) {
         category.questions = category.questions.filter(
           (question, i) => i !== ind
@@ -162,9 +161,7 @@ function CreateAssessment() {
           onQuestionAdd={onQuestionAdd}
           onQuestionRemove={onQuestionRemove}
         />
-
       </div>
-
 
       <div className="button-container">
         <div className="show-button-wrapper">
