@@ -7,13 +7,14 @@ import google from '../../images/google.svg';
 import view from '../../images/view.svg';
 import viewOff from '../../images/viewOff.svg';
 
-import { ArrowRight32, Information32 } from "@carbon/icons-react";
+import { ArrowRight32, Information32, View32, ViewOff32, Checkbox32, CheckboxCheckedFilled32 } from "@carbon/icons-react";
 
 function Login({ history }) {
   const [inputs, setInputs] = useState({
     userId: localStorage.getItem('userId'),
     password: ''
   })
+  const [loginState, setLoginState] = useState('');
   const [remember, setRemember] = useState(false);
   const [viewOn, setViewOn ] = useState(false);
 
@@ -37,8 +38,16 @@ function Login({ history }) {
     history.push('/join');
   }
 
+  const onClickLogin = () => {
+    // if(id !== inputs.userId){
+    //   setLoginState('없는 아이디 입니다.');
+    // }
+    // if(password !== inputs.password){
+    //   setLoginState('비밀번호가 일치하지 않습니다');
+    // }
+  }
+
   return (
-    console.log(localStorage.getItem('userId')),
     <div className='Background'>
       <div className='Container'>
         
@@ -74,21 +83,23 @@ function Login({ history }) {
               value={inputs.password}
               className='pwInput'
               placeholder='Password'/>
-            <img onClick={onViewOn} src={viewOn ? view : viewOff} style={{ width: 32, height: 32}} alt="remember"/>
+            { viewOn ? <View32 onClick={onViewOn} /> : <ViewOff32 onClick={onViewOn} /> }
           </div>
 
           <div className='loginButton'>
-            <div style={{ fontSize: 20, color: 'white'}}>Continue</div>
+            <div style={{ fontSize: 20, color: 'white'}} onClick={onClickLogin}>Continue</div>
             <ArrowRight32 style={{ color: '#ffffff'}}/>
           </div>
         </div>
         
         <div style={{ display: 'flex', alignItems: 'center', marginTop: 24 }}>
-          <img onClick={onRemember} src={remember ? checked : checkbox} style={{ width: 32, height: 32}} alt="remember"/>
+          { remember ? <CheckboxCheckedFilled32 onClick={onRemember} /> : <Checkbox32 onClick={onRemember} />}
           
           <div style={{ fontSize: 16, marginLeft: 8, marginRight: 20 }}>Remember ID</div>
           
           <Information32 style={{ color: '#dde1e6'}}/>
+
+          <div style={{ marginLeft: 16, color: '#da1e28' }}>{loginState}</div>
         </div>
 
         <div style={{ border:'1px solid #f2f4f8', marginTop: 42 }} />
