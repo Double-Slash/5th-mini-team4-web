@@ -12,6 +12,7 @@ const Personal = () => {
         {
           id: 1,
           category: "2020 2학년 1학기 서베이방법론",
+          date: "2020.10.1",
           questions: [
             {
               question: "개념화를 어떻게 했는가?",
@@ -40,6 +41,7 @@ const Personal = () => {
         {
           id: 2,
           category: "2020 2학년 1학기 미디어콘텐츠 제작론",
+          date: "2020.08.1",
           questions: [
             {
               question: "해당 성적은?",
@@ -96,6 +98,7 @@ const Personal = () => {
               <div>
                 <Personal_Category
                   category={categories.category}
+                  date={categories.date}
                   questions={categories.questions}
                 ></Personal_Category>
               </div>

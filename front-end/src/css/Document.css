@@ -1,9 +1,13 @@
-.Document_container{
-   
-    padding: 10px;
-    margin: 10px;
+.Document_container {
+  padding: 10px;
+  margin: 10px;
 }
-.Document_personal{
-    width: 50%;
-    float: left;    
+.Document_personal {
+  width: 50%;
+  float: left;
+}
+
+.Document_sharing {
+  width: 50%;
+  float: left;
 }

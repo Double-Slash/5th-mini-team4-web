@@ -3,7 +3,7 @@ import "../../css/Personal_Category.css";
 import { ChevronUp32 } from "@carbon/icons-react";
 import { ChevronDown32 } from "@carbon/icons-react";
 import Personal_Question from "./Personal_Question";
-const Personal_Categories = ({ category, questions }) => {
+const Personal_Category = ({ category, questions, date }) => {
   const [accordion, setAccordion] = useState(true);
   return (
     <>
@@ -14,6 +14,7 @@ const Personal_Categories = ({ category, questions }) => {
               {accordion ? <ChevronUp32 /> : <ChevronDown32 />}
             </div>
             <div className="Personal_Category_div">{category}</div>
+            <div className="Personal_date">{date}</div>
           </div>
         </div>
 
@@ -30,4 +31,4 @@ const Personal_Categories = ({ category, questions }) => {
   );
 };
 
-export default Personal_Categories;
+export default Personal_Category;

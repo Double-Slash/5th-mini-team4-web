@@ -1,44 +1,48 @@
-.personal_container {
+.sharing_container {
   background-color: #f2f4f8;
 }
-.personal_subtitle {
+.sharing_subtitle {
   opacity: 0.3;
 }
-.personal_make_text {
+.sharing_make_text {
   float: left;
   font-size: x-large;
   text-align: left;
 }
 
-.personal_component1 {
+.sharing_component1 {
+  /* display: inline; */
 }
 
-.personal_make {
+.sharing_make {
   color: white;
   background-color: #08bdba;
   width: 224px;
   height: 48px;
 }
 
-.personal_component1_icon {
+.sharing_component1_icon {
   float: right;
 }
 
-svg.personal_icon {
+svg.sharing_icon {
   margin-right: 30px;
 }
+.sharing_contitle {
+  margin-top: 68px;
+}
 
-.personal_contitle > div {
+.sharing_contitle > div {
   font-size: 20px;
   display: inline-block;
   width: 33%;
   background-color: #dde1e6;
 }
 
-.personal_open {
+.sharing_open {
   display: flex;
 }
 
-.personal_open {
+.sharing_open {
   display: none;
 }

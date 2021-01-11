@@ -1,12 +1,17 @@
-.Personal_Category_icon{
-    padding: 0 10px 10px 10px;
-    margin: 0 5px 0 5px;
+.Personal_Category_icon {
+  padding: 0 10px 10px 10px;
+  margin: 0 5px 0 5px;
 }
 
-.Personal_Category_div{
-    display: inline-block;
-    text-align: center;
+.Personal_Category_div {
+  display: inline-block;
+  text-align: center;
 }
-.Personal_Question{
-    background-color: rgb(202, 200, 200);
+.Personal_Question {
+  background-color: rgb(202, 200, 200);
+}
+.Personal_date {
+  float: right;
+  padding-right: 180px;
+  padding-top: 12px;
 }
