@@ -9,6 +9,7 @@ import CreateAssessment from'./pages/EditAssess/CreateAssessment';
 import Main from './pages/Main/Main'
 import Login from './pages/Login/Login'
 import Join from './pages/Join/Join'
+import FindPassword from './pages/FindPassword/FindPassword'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path="/" exact={true} component={Home}></Route>
       <Route path='/login' exact={true} component={Login} />
       <Route path='/join' exact={true} component={Join} />
+      <Route path='/findpassword' exact={true} component={FindPassword} />
       <Route path="/category" exact={true} component={Category}></Route>
       <Route path="/assessment" exact={true} component={Assessment}></Route>
       <Route path="/createassessment" exact={true} component={CreateAssessment} />
