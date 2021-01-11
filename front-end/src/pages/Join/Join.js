@@ -7,7 +7,6 @@ import checked from '../../images/checked.svg';
 import { ArrowRight32, Information32, NoImage16 } from "@carbon/icons-react";
 
 function Join({ history }) {
-  const email = 'test@test.com'
   const effectPw = '비밀번호가 일치하지 않습니다.'
   const [remember, setRemember] = useState(false);
   const [inputs, setInputs] = useState({
@@ -69,7 +68,7 @@ function Join({ history }) {
               
               <Information32 style={{ color: '#dde1e6'}}/>
 
-              { inputs.userId === email && inputs.userId !== '' ? 
+              { inputs.userId ? 
                 <div style={{ marginLeft: 16, color: '#18bdba'}}>사용가능한 이메일입니다.</div> 
                 : <div style={{ marginLeft: 16, color: '#da1e28'}}>사용할 수 없는 이메일입니다.</div>
               }

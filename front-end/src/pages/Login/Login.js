@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 import './Login.css'
 
-import checkbox from '../../images/checkbox.svg';
-import checked from '../../images/checked.svg';
 import google from '../../images/google.svg';
-import view from '../../images/view.svg';
-import viewOff from '../../images/viewOff.svg';
 
 import { ArrowRight32, Information32, View32, ViewOff32, Checkbox32, CheckboxCheckedFilled32 } from "@carbon/icons-react";
 
@@ -64,7 +60,9 @@ function Login({ history }) {
 
         <div style={{ display: 'flex', justifyContent: 'space-between', margin: '14px 0 14px 0'}}>
           <div className='infoLabel'>Continue with Assessment id</div>
-          <div style={{ fontSize: 12, color: '#08bdba', cursor: 'pointer'}}>Forgot ID?</div>
+          <div
+            onClick={() => history.push('/findpassword')} 
+            style={{ fontSize: 12, color: '#08bdba', cursor: 'pointer'}}>Forgot ID?</div>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column'}}>
