@@ -20,7 +20,7 @@ function CreateRespondents({ email, keyPressed }) {
       <div className="input-email-wrapper">
         <Email32 />
         <input
-          type="text"
+          type="email"
           placeholder="응답자의 이메일을 입력하세요."
           name="email"
           value={email}

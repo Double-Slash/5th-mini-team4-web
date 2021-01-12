@@ -18,9 +18,9 @@ function Respondent({ respondent, onRemove }) {
           <Close32 />
         </div>
       </div>
-      <div onClick={() => setChecked(!isChecked)}>
-        {isChecked ? <CheckboxCheckedFilled32 /> : <Checkbox32 />}
-      </div>
+      {/*<div onClick={() => setChecked(!isChecked)}>*/}
+      {/*  {isChecked ? <CheckboxCheckedFilled32 /> : <Checkbox32 />}*/}
+      {/*</div>*/}
     </div>
   );
 }
