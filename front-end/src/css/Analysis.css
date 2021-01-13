@@ -1,0 +1,16 @@
+.Hader_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 72px;
+  width: 100%;
+}
+
+.Header_title {
+  font-size: 56px;
+  line-height: 60px;
+  font-weight: bold;
+  background-color: #f2f4f8;
+  padding: 6px 262px;
+  border-bottom: 2px solid #4d5358;
+}

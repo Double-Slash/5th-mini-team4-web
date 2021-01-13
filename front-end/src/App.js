@@ -10,6 +10,7 @@ import Main from './pages/Main/Main'
 import Login from './pages/Login/Login'
 import Join from './pages/Join/Join'
 import FindPassword from './pages/FindPassword/FindPassword'
+import Analysis from './pages/Analysis/Analysis';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <Route path="/category" exact={true} component={Category}></Route>
       <Route path="/assessment" exact={true} component={Assessment}></Route>
       <Route path="/createassessment" exact={true} component={CreateAssessment} />
+      <Route path="/analysis" exact={true} component={Analysis} />
       <Route path="/main" exact={true} component={Main} />
     </HashRouter>
     </>
