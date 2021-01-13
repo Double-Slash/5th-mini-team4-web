@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../../css/FindPassword.css'
 
-import { Information32, View32, ViewOff32, EmailNew32, Undo32 } from "@carbon/icons-react";
+import { Information32, View32, ViewOff32, Undo32 } from "@carbon/icons-react";
 import emailDot from '../../images/emaildot.svg'
 
 function FindPassword({ history }){
@@ -13,6 +13,7 @@ function FindPassword({ history }){
   });
   const [code, setCode] = useState('');
   const [confirm , setConfirm] = useState(false);
+  const [viewOn, setViewOn ] = useState(false);
   const [passwords, setPasswords] = useState({
     password: '',
     passwordCheck: ''
@@ -32,6 +33,10 @@ function FindPassword({ history }){
       ...passwords,
       [name] : value
     })
+  }
+
+  const onViewOn = () => {
+    setViewOn(!viewOn);
   }
 
   const onClickButton = () => {
@@ -92,14 +97,18 @@ function FindPassword({ history }){
         <div>
           <div style={{ border:'1px solid #dde1e6' }} />
           <div style={{ color: '#696969', marginTop: 17 }}>새 비밀번호</div>
+        </div>
+        
+        <div className='newPasswordContatiner'>
           <input 
             name='password'
-            type='password'
+            type={viewOn ? 'text' : 'password'}
             value={inputs.password}
             onChange={onChange}
-            className='findInput'
+            className='newPasswordInput'
             placeholder='Password'/>
-        </div>
+          { viewOn ? <View32 onClick={onViewOn} /> : <ViewOff32 onClick={onViewOn} /> }
+        </div> 
 
         <div>
           <div style={{ border:'1px solid #dde1e6' }} />
@@ -112,13 +121,17 @@ function FindPassword({ history }){
                 <div style={{ marginLeft: 17, color: '#da1e28'}}>비밀번호가 일치 하지 않습니다.</div>
               }
           </div>
+        </div>
+        
+        <div className='newPasswordContatiner'>
           <input 
             name='passwordCheck'
-            type='password'
+            type={viewOn ? 'text' : 'password'}
             value={inputs.passwordCheck}
             onChange={onChange}
-            className='findInput'
+            className='newPasswordInput'
             placeholder='Password'/>
+          { viewOn ? <View32 onClick={onViewOn} /> : <ViewOff32 onClick={onViewOn} /> }
         </div>
 
         <div className='BackloginButton' onClick={onClickButton}>

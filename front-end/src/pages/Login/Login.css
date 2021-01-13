@@ -23,6 +23,7 @@
   padding: 16px 17px;
   border-bottom: 2px solid #707070;
 }
+
 .passwordContatiner {
   display: flex;
   background-color: #f2f4f8;
@@ -31,6 +32,7 @@
   padding: 0 17px; 
   margin-top: 16px;
 }
+
 .pwInput{
   background-color: #f2f4f8;
   border: none;
