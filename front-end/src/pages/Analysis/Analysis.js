@@ -39,7 +39,7 @@ function Analysis() {
     },
     {
       id: 4,
-      text: '다중 선택'
+      text: '다중 다택'
     },
   ]
   return (
