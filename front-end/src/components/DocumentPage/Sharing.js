@@ -10,6 +10,7 @@ const Sharing = () => {
         {
           id: 1,
           category: "2020 2학년 1학기 서베이방법론",
+          date: "2020.10.1",
 
           answers: [
             {
@@ -37,6 +38,7 @@ const Sharing = () => {
         {
           id: 2,
           category: "2020 2학년 1학기 미디어콘텐츠 제작론",
+          date: "2020.10.1",
 
           answers: [
             {
@@ -70,16 +72,16 @@ const Sharing = () => {
           {/* <div className="sharing_make"></div> */}
 
           <div className="sharing_component1_icon">
-            <Search32 className="sharing_icon" />
             <Settings32 className="sharing_icon" />
+            <Search32 className="sharing_icon" />
           </div>
         </div>
 
         <div>
           <div className="sharing_contitle">
-            <div>제목</div>
-            <div>응답비율</div>
-            <div>날짜</div>
+            <div className="sharing_contitle_title1">제목</div>
+            <div className="sharing_contitle_title">응답비율</div>
+            <div className="sharing_contitle_title">날짜</div>
           </div>
 
           {data.map((data) =>
@@ -87,6 +89,7 @@ const Sharing = () => {
               <div>
                 <Sharing_Category
                   category={categories.category}
+                  date={categories.date}
                   answers={categories.answers}
                 ></Sharing_Category>
               </div>

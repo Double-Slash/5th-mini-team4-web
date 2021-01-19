@@ -10,10 +10,6 @@
   text-align: left;
 }
 
-.sharing_component1 {
-  /* display: inline; */
-}
-
 .sharing_make {
   color: white;
   background-color: #08bdba;
@@ -22,22 +18,21 @@
 }
 
 .sharing_component1_icon {
-  float: right;
+  overflow: hidden;
+  padding-top: 16px;
 }
 
-svg.sharing_icon {
+.sharing_icon {
+  float: right;
   margin-right: 30px;
 }
-.sharing_contitle {
-  margin-top: 68px;
-}
 
-.sharing_contitle > div {
+/* .sharing_contitle > div {
   font-size: 20px;
   display: inline-block;
   width: 33%;
   background-color: #dde1e6;
-}
+} */
 
 .sharing_open {
   display: flex;
@@ -45,4 +40,21 @@ svg.sharing_icon {
 
 .sharing_open {
   display: none;
+}
+
+.sharing_contitle {
+  overflow: hidden;
+}
+
+.sharing_contitle > div {
+  font-size: 20px;
+  float: left;
+  background-color: #dde1e6;
+}
+
+.sharing_contitle_title1 {
+  width: 50%;
+}
+.sharing_contitle_title {
+  width: 25%;
 }

@@ -1,13 +1,17 @@
 .Document_container {
-  padding: 10px;
-  margin: 10px;
+  overflow: hidden;
+  width: 100%;
 }
 .Document_personal {
-  width: 50%;
+  padding-left: 5px;
+
+  width: 49%;
   float: left;
 }
 
 .Document_sharing {
-  width: 50%;
-  float: left;
+  padding-right: 1px;
+
+  width: 49%;
+  float: right;
 }

@@ -1,16 +1,30 @@
+.Sharing_Category {
+  overflow: hidden;
+}
+
 .Sharing_Category_icon {
+  float: left;
   padding: 0 10px 10px 10px;
   margin: 0 5px 0 5px;
 }
 
 .Sharing_Category_div {
-  display: inline-block;
-  text-align: center;
+  float: left;
+  width: 500px;
 }
 .Sharing_Question {
   background-color: rgb(202, 200, 200);
 }
 
-.AAAAA {
+.Sharing_Category_Ansewer {
+  width: 100%;
+  overflow: hidden;
   background-color: white;
+}
+.Sharing_date {
+  float: left;
+}
+.Sharing_Over {
+  float: left;
+  padding-left: 10%;
 }

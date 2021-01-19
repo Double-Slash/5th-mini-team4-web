@@ -1,7 +1,8 @@
 .Sharing_Answer_container {
-  background-color: white;
   padding: 10px;
+  float: left;
+  width: 50%;
 }
 .Sharing_user {
-  display: inline-block;
+  float: left;
 }

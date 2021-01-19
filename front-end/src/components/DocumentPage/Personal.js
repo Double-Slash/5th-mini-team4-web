@@ -88,9 +88,9 @@ const Personal = () => {
 
         <div>
           <div className="personal_contitle">
-            <div>제목</div>
-            <div>응답비율</div>
-            <div>날짜</div>
+            <div className="personal_contitle_title1">제목</div>
+            <div className="personal_contitle_title">응답비율</div>
+            <div className="personal_contitle_title">날짜</div>
           </div>
 
           {data.map((data) =>
