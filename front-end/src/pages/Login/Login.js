@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Login.css'
+import axios from 'axios';
 
 import google from '../../images/google.svg';
 
@@ -35,12 +36,29 @@ function Login({ history }) {
   }
 
   const onClickLogin = () => {
-    // if(id !== inputs.userId){
-    //   setLoginState('없는 아이디 입니다.');
-    // }
-    // if(password !== inputs.password){
-    //   setLoginState('비밀번호가 일치하지 않습니다');
-    // }
+    if(remember){
+      localStorage.setItem('userId',inputs.userId);
+      axios.post('http://18.217.119.212:8080/api/auth/login', {
+        email: inputs.userId,
+        password: inputs.password
+      }).then( response => {
+        console.log(response)
+        history.push('/main');
+      }).catch( err =>{
+        console.log(err);
+      })
+    }
+    else{
+      axios.post('http://18.217.119.212:8080/api/auth/login', {
+        email: inputs.userId,
+        password: inputs.password
+      }).then( response => {
+        console.log(response)
+        history.push('/main');
+      }).catch( err =>{
+        console.log(err);
+      })
+    }
   }
 
   return (
@@ -84,8 +102,8 @@ function Login({ history }) {
             { viewOn ? <View32 onClick={onViewOn} /> : <ViewOff32 onClick={onViewOn} /> }
           </div>
 
-          <div className='loginButton'>
-            <div style={{ fontSize: 20, color: 'white'}} onClick={onClickLogin}>Continue</div>
+          <div className='loginButton' onClick={onClickLogin}>
+            <div style={{ fontSize: 20, color: 'white'}}>Continue</div>
             <ArrowRight32 style={{ color: '#ffffff'}}/>
           </div>
         </div>
