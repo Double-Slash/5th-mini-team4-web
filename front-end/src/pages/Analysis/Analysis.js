@@ -37,10 +37,6 @@ function Analysis() {
       id: 3,
       text: '예/아니오'
     },
-    {
-      id: 4,
-      text: '다중 다택'
-    },
   ]
   return (
     <div>
