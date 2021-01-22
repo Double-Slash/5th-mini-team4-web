@@ -14,6 +14,7 @@ function CategoryList({
   onContributeChange,
   onQuestionAdd,
   onQuestionRemove,
+  onQuestionTypeChange,
 }) {
   const [accordion, setAccordion] = useState(false);
   return (
@@ -48,6 +49,7 @@ function CategoryList({
           onQuestionAdd={onQuestionAdd}
           index={index}
           onQuestionRemove={onQuestionRemove}
+          onQuestionTypeChange={onQuestionTypeChange}
         />
       </div>
     </div>

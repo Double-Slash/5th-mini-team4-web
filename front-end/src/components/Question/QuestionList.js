@@ -10,13 +10,22 @@ import {
 } from "@carbon/icons-react";
 import "../../css/Question.css";
 
-const QuestionList = ({ onQuestionRemove, questions, index }) => {
+const QuestionList = ({
+  onQuestionRemove,
+  questions,
+  index,
+  onQuestionTypeChange,
+}) => {
   const [accordion, setAccordion] = useState(false);
   const [isQuality, setQuality] = useState(false);
   const [isAmount, setAmount] = useState(false);
 
-  const [qualitySmallCategory, setQualitySmallCategory] = useState("");
-  const [quantitySmallCategory, setQuantitySmallCategory] = useState("");
+  const [smallCategory, setSmallCategory] = useState("");
+
+  const onQuestionType = (i, type) => {
+    onQuestionTypeChange(i, type);
+    setSmallCategory(type);
+  };
 
   return (
     <>
@@ -25,7 +34,7 @@ const QuestionList = ({ onQuestionRemove, questions, index }) => {
           <>
             <div key={i} className="question-container">
               <div className="question-name">
-                <div>{question.question.title}</div>
+                <div>{question.question.question}</div>
               </div>
               <div className="question-button-wrapper">
                 <div
@@ -56,37 +65,45 @@ const QuestionList = ({ onQuestionRemove, questions, index }) => {
                 <div className={isQuality ? "" : "unchecked"}>
                   <div className="answer-small-category-wrapper">
                     <div
-                      className={`answer-small-category ${isQuality ? "" : " unchecked"}`}
-                      onClick={() => setQualitySmallCategory("short")}
+                      className={`answer-small-category ${
+                        isQuality ? "" : " unchecked"
+                      }`}
+                      onClick={() => onQuestionType(i, "short")}
                     >
-
                       <label>단문</label>
-                      {qualitySmallCategory === "short" ? (
+                      {smallCategory === "short" ? (
                         <RadioButtonChecked32 />
                       ) : (
                         <RadioButton32 />
                       )}
                     </div>
                     <div
-                      className={`answer-input-container ${isQuality ? "" : "unchecked"}`}
+                      className={`answer-input-container ${
+                        isQuality ? "" : "unchecked"
+                      }`}
                     >
                       <input type="text" placeholder="원하는 말을 적어주세요" />
                     </div>
                   </div>
                   <div className="answer-small-category-wrapper">
                     <div
-                      className={`answer-small-category ${isQuality ? "" : "unchecked"}`}
-                      onClick={() => setQualitySmallCategory("long")}
+                      className={`answer-small-category ${
+                        isQuality ? "" : "unchecked"
+                      }`}
+                      onClick={() => onQuestionType(i, "long")}
                     >
                       <label>장문</label>
-                      {qualitySmallCategory === "long" ? (
+                      {smallCategory === "long" ? (
                         <RadioButtonChecked32 />
                       ) : (
                         <RadioButton32 />
                       )}
                     </div>
                     <div
-                      className={`answer-input-container ${isQuality ? "" : "unchecked"}`}>
+                      className={`answer-input-container ${
+                        isQuality ? "" : "unchecked"
+                      }`}
+                    >
                       <input type="text" placeholder="원하는 말을 적어주세요" />
                     </div>
                   </div>
@@ -104,18 +121,22 @@ const QuestionList = ({ onQuestionRemove, questions, index }) => {
                 <div className={`${isAmount ? "" : "unchecked"}`}>
                   <div className="answer-small-category-wrapper">
                     <div
-                      className={`answer-small-category ${isAmount ? "" : "unchecked"}`}
-                      onClick={() => setQuantitySmallCategory("number")}
+                      className={`answer-small-category ${
+                        isAmount ? "" : "unchecked"
+                      }`}
+                      onClick={() => onQuestionType(i, "number")}
                     >
                       <label>숫자 입력</label>
-                      {quantitySmallCategory === "number" ? (
+                      {smallCategory === "number" ? (
                         <RadioButtonChecked32 />
                       ) : (
                         <RadioButton32 />
                       )}
                     </div>
                     <div
-                      className={`answer-input-container ${isAmount ? "" : "unchecked"}`}
+                      className={`answer-input-container ${
+                        isAmount ? "" : "unchecked"
+                      }`}
                     >
                       <input type="text" placeholder="숫자를 적어주세요" />
                     </div>
@@ -123,18 +144,22 @@ const QuestionList = ({ onQuestionRemove, questions, index }) => {
 
                   <div className="answer-small-category-wrapper">
                     <div
-                      className={`answer-small-category ${isAmount ? "" : "unchecked"}`}
-                      onClick={() => setQuantitySmallCategory("score")}
+                      className={`answer-small-category ${
+                        isAmount ? "" : "unchecked"
+                      }`}
+                      onClick={() => onQuestionType(i, "score")}
                     >
                       <label>5점 질문</label>
-                      {quantitySmallCategory == "score" ? (
+                      {smallCategory == "score" ? (
                         <RadioButtonChecked32 />
                       ) : (
                         <RadioButton32 />
                       )}
                     </div>
                     <div
-                      className={`answer-input-container ${isAmount ? "" : "unchecked"}`}
+                      className={`answer-input-container ${
+                        isAmount ? "" : "unchecked"
+                      }`}
                     >
                       <label>매우 아니다</label>
                       <div className="answer-radio-wrapper">
@@ -159,18 +184,22 @@ const QuestionList = ({ onQuestionRemove, questions, index }) => {
                   </div>
                   <div className="answer-small-category-wrapper">
                     <div
-                      className={`answer-small-category ${isAmount ? "" : "unchecked"}`}
-                      onClick={() => setQuantitySmallCategory("yesOrNo")}
+                      className={`answer-small-category ${
+                        isAmount ? "" : "unchecked"
+                      }`}
+                      onClick={() => onQuestionType(i, "yesOrNo")}
                     >
                       <label>예/아니오</label>
-                      {quantitySmallCategory === "yesOrNo" ? (
+                      {smallCategory === "yesOrNo" ? (
                         <RadioButtonChecked32 />
                       ) : (
                         <RadioButton32 />
                       )}
                     </div>
                     <div
-                      className={`answer-input-container answer-boolean ${isAmount ? "" : "unchecked"}`}
+                      className={`answer-input-container answer-boolean ${
+                        isAmount ? "" : "unchecked"
+                      }`}
                     >
                       <div className="answer-boolean-input">
                         예

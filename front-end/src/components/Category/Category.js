@@ -16,6 +16,7 @@ function Category({
   onQuestionRemove,
   onDescriptChange,
   onContributeChange,
+  onQuestionTypeChange,
 }) {
   console.log(lists);
   return (
@@ -33,6 +34,7 @@ function Category({
             onChangeQuestion={onChangeQuestion}
             onDescriptChange={onDescriptChange}
             onContributeChange={onContributeChange}
+            onQuestionTypeChange={onQuestionTypeChange}
           />
         );
       })}
