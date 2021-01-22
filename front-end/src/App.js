@@ -18,17 +18,16 @@ function App() {
       <HashRouter>
         {/* Navigation은 개발 완료시 삭제예정 개발시 페이지 참고용 */}
         <Navigation></Navigation>
-        <Route path="/" exact={true} component={Home}></Route>
+        <Route path="/" exact={true} component={document}></Route>
         <Route path="/login" exact={true} component={Login} />
         <Route path="/join" exact={true} component={Join} />
         <Route path="/category" exact={true} component={Category}></Route>
-        <Route path="/assessment" exact={true} component={Assessment}></Route>
+        {/* <Route path="/assessment" exact={true} component={Assessment}></Route> */}
         <Route
           path="/createassessment"
           exact={true}
           component={CreateAssessment}
         />
-        <Route path="/document" exact={true} component={document} />
         <Route path="/main" exact={true} component={Main} />
       </HashRouter>
     </>
