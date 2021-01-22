@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 import './Join.css'
+import axios from 'axios';
 
 import checkbox from '../../images/checkbox.svg';
 import checked from '../../images/checked.svg';
 
-import { ArrowRight32, Information32 } from "@carbon/icons-react";
+import { ArrowRight32, Information32, NoImage16 } from "@carbon/icons-react";
+
+
 
 function Join({ history }) {
+  const emailRegex = /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+  const effectPw = '비밀번호가 일치하지 않습니다.'
   const [remember, setRemember] = useState(false);
+  const [signUpValid, setSignUpValid] = useState(false);
   const [inputs, setInputs] = useState({
     userId: '',
     password: '',
@@ -22,25 +28,61 @@ function Join({ history }) {
       ...inputs,
       [name] : value
     })
+    onValidSingUp()
   }
   
   const onRemember = () => {
     setRemember(!remember);
   }
 
-  const onSignUp = () => {
-    if(remember){
-      localStorage.setItem('userId',inputs.userId);
-    }
-    if(inputs.password === inputs.passwordCheck){
-      history.push('/login');
+  const onValidSingUp = () => {
+    if(inputs.userId && inputs.password && inputs.name){
+      setSignUpValid(true)
     }
     else{
-      alert("비밀번호가 다릅니다. 확인해주세요!");
+      setSignUpValid(false)
+    }
+  }
+
+  const onSignUp = () => {
+    if(signUpValid && remember){
+      localStorage.setItem('userId',inputs.userId);
+      axios.post('http://18.217.119.212:8080/api/auth/login',{
+        email: inputs.userId,
+        password: inputs.password,
+        name: inputs.name
+      }).then( response => {
+        console.log(response);
+        history.push('/login');
+      }).catch( err => {
+        console.log(err);
+      })
+    }
+    else if(signUpValid){
+      axios.post('http://18.217.119.212:8080/api/auth/login',{
+        email: inputs.userId,
+        password: inputs.password,
+        name: inputs.name
+      }).then( response => {
+        console.log(response);
+        history.push('/login');
+      }).catch( err => {
+        console.log(err);
+      })
+    }
+    else if(inputs.userId === ''){
+      alert('이메일을 입력해주세요');
+    }
+    else if(inputs.password === ''){
+      alert('비밀번호을 입력해주세요');
+    }
+    else if(inputs.name === ''){
+      alert('이름을 입력해주세요');
     }
   }
   
   return (
+    console.log(inputs),
     <div className='joinBack'>
       <div className='join-wrapper'>
         <div className="joinContainer">
@@ -65,6 +107,11 @@ function Join({ history }) {
               <div style={{ fontSize: 16, marginLeft: 8, marginRight: 20 }}>Remember ID</div>
               
               <Information32 style={{ color: '#dde1e6'}}/>
+
+              { emailRegex.test(inputs.userId) ? 
+                <div style={{ marginLeft: 16, color: '#18bdba'}}>사용가능한 이메일입니다.</div> 
+                : <div style={{ marginLeft: 16, color: '#da1e28'}}>사용할 수 없는 이메일입니다.</div>
+              }
             </div>
               
               <div style={{ border:'1px solid #dde1e6', marginTop: 30}} /> 
@@ -84,9 +131,17 @@ function Join({ history }) {
             </div>
             
             <div>
-              <div style={{ color: '#696969', marginTop: 16 }}>비밀번호 확인</div>
-      
-              <div style={{ marginLeft: 10 }}/>
+              <div style={{ display: 'flex', alignItems: 'center',marginTop: 16}}>
+                <div style={{ color: '#696969' }}>비밀번호 확인</div>
+        
+                <div style={{ marginLeft: 12 }}/>
+
+                <Information32 style={{ color: '#dde1e6'}}/>
+
+                <div style={{ marginLeft: 16, color: '#da1e28' }}>
+                  { inputs.password === inputs.passwordCheck ? null : effectPw}
+                </div>
+              </div>
 
               <input
                 name='passwordCheck'

@@ -9,6 +9,8 @@ import CreateAssessment from "./pages/EditAssess/CreateAssessment";
 import Main from "./pages/Main/Main";
 import Login from "./pages/Login/Login";
 import Join from "./pages/Join/Join";
+import FindPassword from './pages/FindPassword/FindPassword'
+import Analysis from './pages/Analysis/Analysis';
 import document from "./components/DocumentPage/Document";
 
 function App() {

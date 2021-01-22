@@ -22,6 +22,19 @@ function CreateAssessment() {
               ],
             },
           },
+          {
+            question: {
+              title: "개발이 괜찮나?",
+              answers: [
+                {
+                  type: "short",
+                },
+                {
+                  type: "number",
+                },
+              ],
+            },
+          },
         ],
       },
       {

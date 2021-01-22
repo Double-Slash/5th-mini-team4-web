@@ -1,19 +1,17 @@
 import React, { useState } from 'react';
 import './Login.css'
+import axios from 'axios';
 
-import checkbox from '../../images/checkbox.svg';
-import checked from '../../images/checked.svg';
 import google from '../../images/google.svg';
-import view from '../../images/view.svg';
-import viewOff from '../../images/viewOff.svg';
 
-import { ArrowRight32, Information32 } from "@carbon/icons-react";
+import { ArrowRight32, Information32, View32, ViewOff32, Checkbox32, CheckboxCheckedFilled32 } from "@carbon/icons-react";
 
 function Login({ history }) {
   const [inputs, setInputs] = useState({
     userId: localStorage.getItem('userId'),
     password: ''
   })
+  const [loginState, setLoginState] = useState('');
   const [remember, setRemember] = useState(false);
   const [viewOn, setViewOn ] = useState(false);
 
@@ -37,8 +35,33 @@ function Login({ history }) {
     history.push('/join');
   }
 
+  const onClickLogin = () => {
+    if(remember){
+      localStorage.setItem('userId',inputs.userId);
+      axios.post('http://18.217.119.212:8080/api/auth/login', {
+        email: inputs.userId,
+        password: inputs.password
+      }).then( response => {
+        console.log(response)
+        history.push('/main');
+      }).catch( err =>{
+        console.log(err);
+      })
+    }
+    else{
+      axios.post('http://18.217.119.212:8080/api/auth/login', {
+        email: inputs.userId,
+        password: inputs.password
+      }).then( response => {
+        console.log(response)
+        history.push('/main');
+      }).catch( err =>{
+        console.log(err);
+      })
+    }
+  }
+
   return (
-    console.log(localStorage.getItem('userId')),
     <div className='Background'>
       <div className='Container'>
         
@@ -55,7 +78,9 @@ function Login({ history }) {
 
         <div style={{ display: 'flex', justifyContent: 'space-between', margin: '14px 0 14px 0'}}>
           <div className='infoLabel'>Continue with Assessment id</div>
-          <div style={{ fontSize: 12, color: '#08bdba', cursor: 'pointer'}}>Forgot ID?</div>
+          <div
+            onClick={() => history.push('/findpassword')} 
+            style={{ fontSize: 12, color: '#08bdba', cursor: 'pointer'}}>Forgot ID?</div>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column'}}>
@@ -74,21 +99,23 @@ function Login({ history }) {
               value={inputs.password}
               className='pwInput'
               placeholder='Password'/>
-            <img onClick={onViewOn} src={viewOn ? view : viewOff} style={{ width: 32, height: 32}} alt="remember"/>
+            { viewOn ? <View32 onClick={onViewOn} /> : <ViewOff32 onClick={onViewOn} /> }
           </div>
 
-          <div className='loginButton'>
+          <div className='loginButton' onClick={onClickLogin}>
             <div style={{ fontSize: 20, color: 'white'}}>Continue</div>
             <ArrowRight32 style={{ color: '#ffffff'}}/>
           </div>
         </div>
         
         <div style={{ display: 'flex', alignItems: 'center', marginTop: 24 }}>
-          <img onClick={onRemember} src={remember ? checked : checkbox} style={{ width: 32, height: 32}} alt="remember"/>
+          { remember ? <CheckboxCheckedFilled32 onClick={onRemember} /> : <Checkbox32 onClick={onRemember} />}
           
           <div style={{ fontSize: 16, marginLeft: 8, marginRight: 20 }}>Remember ID</div>
           
           <Information32 style={{ color: '#dde1e6'}}/>
+
+          <div style={{ marginLeft: 16, color: '#da1e28' }}>{loginState}</div>
         </div>
 
         <div style={{ border:'1px solid #f2f4f8', marginTop: 42 }} />
