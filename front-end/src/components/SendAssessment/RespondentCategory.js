@@ -1,6 +1,6 @@
 import { Checkbox32, CheckboxCheckedFilled32 } from "@carbon/icons-react";
 import React, { useState } from "react";
-// {setCategoryChecked, isCategoryChecked}
+
 function RespondentCategory({
   id,
   necessaryAdd,
