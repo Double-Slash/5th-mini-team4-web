@@ -1,0 +1,9 @@
+{
+  "name": "question",
+  "version": "1.0.0",
+  "description": "assessment/question",
+  "main": "index.js",
+  "repository": "https://github.com/Double-Slash/5th-mini-team4-web.git",
+  "author": "gaok <dlrkdhr321@gmail.com>",
+  "license": "MIT"
+}

@@ -13,14 +13,12 @@ function Respondent({ respondent, onRemove }) {
     <div className="respondent-wrapper">
       <div className="email-wrapper">
         <UserAvatar32 />
+        <label className="email-no-userName">미입력</label>
         <div className="respondent-label">{respondent.email}</div>
         <div onClick={() => onRemove(respondent.id)}>
           <Close32 />
         </div>
       </div>
-      {/*<div onClick={() => setChecked(!isChecked)}>*/}
-      {/*  {isChecked ? <CheckboxCheckedFilled32 /> : <Checkbox32 />}*/}
-      {/*</div>*/}
     </div>
   );
 }

@@ -9,6 +9,8 @@ import {
 } from "@carbon/icons-react";
 import CreateRespondents from "./CreateRespondents";
 import Respondent from "./Respondent";
+import RespondentCategory from "./RespondentCategory";
+import RespondentQuestion from "./RespondentQuestion";
 
 function RespondentsList() {
   const [list, setList] = useState({
@@ -129,10 +131,12 @@ function RespondentsList() {
     {
       id: 1,
       email: "aaa@naver.com",
+      necessary: [],
     },
     {
       id: 2,
       email: "bbb@naver.com",
+      necessary: [],
     },
   ]);
 
@@ -161,6 +165,18 @@ function RespondentsList() {
     setRespondents(respondents.filter((respondents) => respondents.id !== id));
   };
 
+  const necessaryAdd = (id, index) => {
+    respondents[id - 1].necessary.push(index);
+    console.log("Add" + respondents[id - 1].necessary);
+  };
+
+  const necessaryRemove = (id, index) => {
+    respondents[id - 1].necessary = respondents[id - 1].necessary.filter(
+      (item) => item != index
+    );
+    console.log("remove" + respondents[id - 1].necessary);
+  };
+
   return (
     <div className="assessment-send-container">
       <div className="assessment-title">
@@ -184,7 +200,7 @@ function RespondentsList() {
           </div>
         </div>
         <div className="category-question-container">
-          {list.categories.map((item) => (
+          {list.categories.map((item, index) => (
             <>
               <div className="respondents-category-container">
                 <div className="category-title">
@@ -194,16 +210,13 @@ function RespondentsList() {
                   </div>
                 </div>
                 {respondents.map((item) => (
-                  <div
-                    className="respondents-category-check"
-                    onClick={() => setCategoryChecked(!isCategoryChecked)}
-                  >
-                    {isCategoryChecked ? (
-                      <CheckboxCheckedFilled32 />
-                    ) : (
-                      <Checkbox32 />
-                    )}
-                  </div>
+                  <RespondentCategory
+                    id={item.id}
+                    index={index}
+                    necessary={respondents[item.id - 1].necessary}
+                    necessaryAdd={necessaryAdd}
+                    necessaryRemove={necessaryRemove}
+                  />
                 ))}
               </div>
               {item.questions.map((element) => (
@@ -212,24 +225,11 @@ function RespondentsList() {
                     {element.question.title}
                   </div>
                   {respondents.map((item) => (
-                    <div
-                      className="questions-check"
-                      onClick={() =>
-                        isCategoryChecked
-                          ? setQuestionChecked(!isQuestionChecked)
-                          : ""
-                      }
-                    >
-                      {isCategoryChecked ? (
-                        isQuestionChecked ? (
-                          <CheckboxCheckedFilled32 />
-                        ) : (
-                          <Checkbox32 />
-                        )
-                      ) : (
-                        <CheckboxIndeterminateFilled32 />
-                      )}
-                    </div>
+                    <RespondentQuestion
+                      isCategoryChecked={isCategoryChecked}
+                      setQuestionChecked={setQuestionChecked}
+                      isQuestionChecked={isQuestionChecked}
+                    />
                   ))}
                 </div>
               ))}
