@@ -9,26 +9,31 @@ import CreateAssessment from "./pages/EditAssess/CreateAssessment";
 import Main from "./pages/Main/Main";
 import Login from "./pages/Login/Login";
 import Join from "./pages/Join/Join";
-import FindPassword from './pages/FindPassword/FindPassword'
-import Analysis from './pages/Analysis/Analysis';
+import FindPassword from "./pages/FindPassword/FindPassword";
+import Analysis from "./pages/Analysis/Analysis";
 import document from "./components/DocumentPage/Document";
+import RespondentsList from "./components/SendAssessment/RespondentsList";
 
 function App() {
   return (
     <>
       <Header></Header>
       <HashRouter>
-        {/* Navigation은 개발 완료시 삭제예정 개발시 페이지 참고용 */}
         <Navigation></Navigation>
         <Route path="/" exact={true} component={document}></Route>
         <Route path="/login" exact={true} component={Login} />
         <Route path="/join" exact={true} component={Join} />
         <Route path="/category" exact={true} component={Category}></Route>
-        {/* <Route path="/assessment" exact={true} component={Assessment}></Route> */}
+
         <Route
           path="/createassessment"
           exact={true}
           component={CreateAssessment}
+        />
+        <Route
+          path="/sendassessment"
+          exact={true}
+          component={RespondentsList}
         />
         <Route path="/main" exact={true} component={Main} />
       </HashRouter>
