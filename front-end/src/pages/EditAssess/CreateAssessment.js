@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Category from "../../components/Category/Category";
 import "./CreateAssessment.css";
 import { SendAltFilled16, View16 } from "@carbon/icons-react";
@@ -10,17 +10,8 @@ function CreateAssessment() {
         category: "개발",
         questions: [
           {
-            question: {
-              title: "개발이 괜찮나?",
-              answers: [
-                {
-                  type: "short",
-                },
-                {
-                  type: "number",
-                },
-              ],
-            },
+            question: "개발이 괜찮나?",
+            questionType: "",
           },
           {
             question: {
@@ -41,17 +32,8 @@ function CreateAssessment() {
         category: "기획",
         questions: [
           {
-            question: {
-              title: "개발이 괜찮나?",
-              answers: [
-                {
-                  type: "short",
-                },
-                {
-                  type: "number",
-                },
-              ],
-            },
+            question: "개발이 괜찮나?",
+            questionType: "",
           },
         ],
       },
@@ -59,17 +41,8 @@ function CreateAssessment() {
         category: "디자인",
         questions: [
           {
-            question: {
-              title: "개발이 괜찮나?",
-              answers: [
-                {
-                  type: "short",
-                },
-                {
-                  type: "number",
-                },
-              ],
-            },
+            question: "개발이 괜찮나?",
+            questionType: "",
           },
         ],
       },
@@ -82,10 +55,10 @@ function CreateAssessment() {
     question: "",
   });
 
-  const { title, category, question } = inputs;
+  const { title, category } = inputs;
 
   const onChangeTitle = (e) => {
-    setInputs({ title: e.target.value });
+    setInputs({ question: e.target.value });
   };
 
   // 카테고리 삭제
@@ -109,24 +82,28 @@ function CreateAssessment() {
     setInputs({ category: e.target.value });
   };
 
-  // 질문 input 변경
-  const onChangeQuestion = (e) => {
-    setInputs({ question: e.target.value });
-  };
-
   // 질문 추가
   const onQuestionAdd = (id, question) => {
     list.categories.forEach((category, index) => {
       if (index === id) {
         category.questions = category.questions.concat({
-          question: {
-            title: question,
-          },
+          question: question,
         });
       }
     });
     setList(list);
-    setInputs({question: ""})
+    setInputs({ question: "" });
+  };
+
+  const onQuestionTypeChange = (id, questionType) => {
+    list.categories.forEach((category, index) => {
+      if (index === id) {
+        category.questions[id].questionType = questionType;
+      }
+    });
+    setList(list);
+    setInputs({ question: "" });
+    console.log(list);
   };
 
   // 질문 삭제
@@ -167,9 +144,9 @@ function CreateAssessment() {
           onCategoryRemove={onCategoryRemove}
           onCategoryAdd={onCategoryAdd}
           onChangeTitle={onChangeCategoryName}
-          onChangeQuestion={onChangeQuestion}
           onQuestionAdd={onQuestionAdd}
           onQuestionRemove={onQuestionRemove}
+          onQuestionTypeChange={onQuestionTypeChange}
         />
       </div>
 

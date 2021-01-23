@@ -9,6 +9,7 @@ function Question({
   index,
   onQuestionAdd,
   onQuestionRemove,
+  onQuestionTypeChange,
 }) {
   const [question, setQuestion] = useState("");
   const onChangeQuestion = (e) => {
@@ -20,6 +21,7 @@ function Question({
         index={index}
         onQuestionRemove={onQuestionRemove}
         questions={questions}
+        onQuestionTypeChange={onQuestionTypeChange}
       />
 
       <div className="question-add-input">

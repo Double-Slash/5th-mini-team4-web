@@ -11,11 +11,9 @@ function Category({
   onCategoryRemove,
   onCategoryAdd,
   onChangeTitle,
-  onChangeQuestion,
   onQuestionAdd,
   onQuestionRemove,
-  onDescriptChange,
-  onContributeChange,
+  onQuestionTypeChange,
 }) {
   console.log(lists);
   return (
@@ -26,13 +24,10 @@ function Category({
             key={index}
             list={list}
             index={index}
-            question={inputs.question}
             onQuestionAdd={onQuestionAdd}
             onQuestionRemove={onQuestionRemove}
             onCategoryRemove={onCategoryRemove}
-            onChangeQuestion={onChangeQuestion}
-            onDescriptChange={onDescriptChange}
-            onContributeChange={onContributeChange}
+            onQuestionTypeChange={onQuestionTypeChange}
           />
         );
       })}
