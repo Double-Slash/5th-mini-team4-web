@@ -34,7 +34,7 @@ const QuestionList = ({
           <>
             <div key={i} className="question-container">
               <div className="question-name">
-                <div>{question.question.question}</div>
+                <div>{question.question}</div>
               </div>
               <div className="question-button-wrapper">
                 <div
@@ -150,7 +150,7 @@ const QuestionList = ({
                       onClick={() => onQuestionType(i, "score")}
                     >
                       <label>5점 질문</label>
-                      {smallCategory == "score" ? (
+                      {smallCategory === "score" ? (
                         <RadioButtonChecked32 />
                       ) : (
                         <RadioButton32 />

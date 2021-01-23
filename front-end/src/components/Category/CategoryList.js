@@ -5,13 +5,7 @@ import Question from "../Question/Question";
 function CategoryList({
   list,
   index,
-  question,
-  descript,
-  contribute,
   onCategoryRemove,
-  onChangeQuestion,
-  onDescriptChange,
-  onContributeChange,
   onQuestionAdd,
   onQuestionRemove,
   onQuestionTypeChange,
@@ -40,12 +34,6 @@ function CategoryList({
       <div className={accordion ? "category-open" : "category-close"}>
         <Question
           questions={list.questions}
-          question={question}
-          descript={descript}
-          contribute={contribute}
-          onChangeQuestion={onChangeQuestion}
-          onDescriptChange={onDescriptChange}
-          onContributeChange={onContributeChange}
           onQuestionAdd={onQuestionAdd}
           index={index}
           onQuestionRemove={onQuestionRemove}

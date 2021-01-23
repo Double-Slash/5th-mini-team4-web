@@ -55,7 +55,7 @@ function CreateAssessment() {
     question: "",
   });
 
-  const { title, category, question } = inputs;
+  const { title, category } = inputs;
 
   const onChangeTitle = (e) => {
     setInputs({ question: e.target.value });
@@ -80,11 +80,6 @@ function CreateAssessment() {
   // 카테고리 input 변경
   const onChangeCategoryName = (e) => {
     setInputs({ category: e.target.value });
-  };
-
-  // 질문 input 변경
-  const onChangeQuestion = (e) => {
-    setInputs({ question: e.target.value });
   };
 
   // 질문 추가
@@ -149,7 +144,6 @@ function CreateAssessment() {
           onCategoryRemove={onCategoryRemove}
           onCategoryAdd={onCategoryAdd}
           onChangeTitle={onChangeCategoryName}
-          onChangeQuestion={onChangeQuestion}
           onQuestionAdd={onQuestionAdd}
           onQuestionRemove={onQuestionRemove}
           onQuestionTypeChange={onQuestionTypeChange}

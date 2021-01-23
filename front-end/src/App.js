@@ -12,12 +12,13 @@ import Join from "./pages/Join/Join";
 import FindPassword from "./pages/FindPassword/FindPassword";
 import Analysis from "./pages/Analysis/Analysis";
 import document from "./components/DocumentPage/Document";
+import Response from "./pages/Respond/RespondAssessment";
 import RespondentsList from "./components/SendAssessment/RespondentsList";
 
 function App() {
   return (
     <>
-      <Header></Header>
+      <Header />
       <HashRouter>
         <Navigation></Navigation>
         <Route path="/" exact={true} component={document}></Route>
@@ -36,6 +37,7 @@ function App() {
           component={RespondentsList}
         />
         <Route path="/main" exact={true} component={Main} />
+        <Route path="/response" exact={true} component={Response} />
       </HashRouter>
     </>
   );

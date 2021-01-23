@@ -55,7 +55,7 @@
     height: 48px;
     display: flex;
     justify-content: space-between;
-    padding: 0px 16px;
+    padding: 0 16px;
     align-items: center;
     border-bottom: 1px solid #A2A9B0;
 }
@@ -101,6 +101,36 @@
 .answer-input-container > label{
     color: #000000;
     font-size: 12px;
+}
+
+.answer-input-wrapper {
+    background-color: #f2f4f8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #4d5358;
+    padding: 0 1rem;
+}
+
+.answer-input-wrapper > input {
+    border:none;
+    outline: none;
+    background-color: #f2f4f8;
+    height: 3rem;
+}
+
+.answer-input-wrapper > label{
+    color: #000000;
+    font-size: 12px;
+}
+
+.answer-input-wrapper > .answer-boolean-input {
+    display: flex;
+    margin: 0 1rem;
+    justify-content: space-between;
+    align-items: center;
+    width: 7rem;
+    height: 3rem;
 }
 
 .answer-radio-wrapper{
