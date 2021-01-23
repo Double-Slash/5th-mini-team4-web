@@ -133,6 +133,15 @@
     height: 3rem;
 }
 
+.answer-input-wrapper > .answer-radio-wrapper {
+    display: flex;
+    margin: 0 1rem;
+    justify-content: space-between;
+    align-items: center;
+    width: 18rem;
+    height: 3rem;
+}
+
 .answer-radio-wrapper{
     display: flex;
     width: 18rem;

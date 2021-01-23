@@ -26,7 +26,7 @@ const Answer = ({ i, type, answers, setAnswers }) => {
       );
     case "score":
       return (
-        <div className="answer-input-wrapper">
+        <div className="answer-input-wrapper radio">
           <label>매우 아니다</label>
           <div className="answer-radio-wrapper">
             <div onClick={() => setScore(1)}>
